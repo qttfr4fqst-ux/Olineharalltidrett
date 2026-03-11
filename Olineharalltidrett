@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Oline Analyseinstitutt</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ffd6f5,#cde7ff,#e0d4ff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:45px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+max-width:500px;
+}
+
+h1{
+color:#a64dff;
+margin-bottom:5px;
+}
+
+.subtitle{
+font-size:14px;
+color:#666;
+margin-bottom:25px;
+}
+
+p{
+font-size:18px;
+}
+
+button{
+margin-top:20px;
+padding:14px 30px;
+font-size:16px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#ff8ad8,#8ab6ff);
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+#loading{
+margin-top:20px;
+font-style:italic;
+display:none;
+}
+
+#result{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+#retry{
+display:none;
+}
+
+#complaint{
+margin-top:35px;
+font-size:13px;
+color:#666;
+text-decoration:underline;
+cursor:pointer;
+}
+
+/* sommerfugler */
+
+.butterfly{
+position:absolute;
+font-size:26px;
+animation:fly 14s linear infinite;
+}
+
+@keyframes fly{
+from{
+transform:translateY(110vh) translateX(0);
+}
+to{
+transform:translateY(-10vh) translateX(200px);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Oline Analyseinstitutt</h1>
+<div class="subtitle">Uavhengig vurdering av diskusjoner siden 2026</div>
+
+<p>
+Dette systemet analyserer diskusjoner<br>
+og avgjør hvem som har rett.
+</p>
+
+<p>
+Systemet er basert på avansert logikk<br>
+og Olines vurderinger.
+</p>
+
+<button onclick="startTest()">Start analyse</button>
+
+<div id="loading"></div>
+
+<div id="result"></div>
+
+<button id="retry" onclick="startTest()">Analyser på nytt</button>
+
+<div id="complaint" onclick="complaint()">
+Mener du analysen er feil? Kontakt kundeservice
+</div>
+
+</div>
+
+<div class="butterfly" style="left:10%">🦋</div>
+<div class="butterfly" style="left:30%;animation-delay:3s">🦋</div>
+<div class="butterfly" style="left:60%;animation-delay:6s">🦋</div>
+<div class="butterfly" style="left:80%;animation-delay:9s">🦋</div>
+
+<script>
+
+const loadingTexts=[
+"Analyserer argumentet ditt...",
+"Sammenligner med Olines mening...",
+"Kjører logisk evaluering...",
+"Konsulterer med Oline..."
+];
+
+const resultTexts=[
+"Analyse fullført. Resultat: Oline hadde rett.",
+"Evaluering ferdig. Oline hadde rett.",
+"Konklusjon: Oline hadde rett.",
+"Systemet er ferdig med analysen. Oline hadde rett."
+];
+
+const complaintTexts=[
+"Kundeservice har vurdert klagen din.\n\nResultat: Du tok feil igjen.",
+"Klagen din er analysert.\n\nKonklusjon: fortsatt feil.",
+"Kundeservice konsulterte også med Oline.\n\nDu tok feil.",
+"Etter nøye vurdering: Oline hadde fortsatt rett."
+];
+
+function random(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function startTest(){
+
+document.getElementById("result").innerText="";
+
+let load=random(loadingTexts);
+
+let loading=document.getElementById("loading");
+
+loading.innerText=load;
+loading.style.display="block";
+
+setTimeout(function(){
+
+loading.style.display="none";
+
+document.getElementById("result").innerText=random(resultTexts);
+
+document.getElementById("retry").style.display="inline-block";
+
+},2000);
+
+}
+
+function complaint(){
+alert(random(complaintTexts));
+}
+
+</script>
+
+</body>
+</html>
