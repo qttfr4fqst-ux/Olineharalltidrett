@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="no">
-
 <head>
 
 <meta charset="UTF-8">
@@ -22,10 +21,15 @@ box-sizing:border-box;
 }
 
 body{
+
 font-family:'Poppins',sans-serif;
+
 color:white;
+
 overflow-x:hidden;
+
 min-height:100vh;
+
 padding:20px;
 
 background:
@@ -38,7 +42,9 @@ linear-gradient(
 );
 
 background-size:400% 400%;
+
 animation:bgFlow 18s ease infinite;
+
 }
 
 @keyframes bgFlow{
@@ -76,6 +82,17 @@ animation:fadeIn 1s ease;
 
 }
 
+.archiveCard{
+
+background:rgba(255,255,255,0.08);
+
+border:1px solid rgba(255,255,255,0.10);
+
+box-shadow:
+0 0 25px rgba(255,255,255,0.04);
+
+}
+
 @keyframes fadeIn{
 
 from{
@@ -95,11 +112,8 @@ transform:translateY(0);
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:center;
 
 gap:2px;
-
-margin-top:8px;
 
 text-align:center;
 
@@ -113,11 +127,8 @@ font-size:2.5rem;
 
 letter-spacing:4px;
 
-color:#fffdfd;
-
 text-shadow:
-0 2px 10px rgba(120,80,160,0.25),
-0 0 20px rgba(255,255,255,0.18);
+0 2px 10px rgba(120,80,160,0.25);
 
 }
 
@@ -129,11 +140,8 @@ font-size:2rem;
 
 line-height:1;
 
-color:#fffdfd;
-
 text-shadow:
-0 2px 10px rgba(120,80,160,0.25),
-0 0 20px rgba(255,255,255,0.18);
+0 2px 10px rgba(120,80,160,0.25);
 
 }
 
@@ -143,13 +151,9 @@ text-align:center;
 
 margin-top:22px;
 
-font-size:1.02rem;
+font-size:1rem;
 
 line-height:1.5;
-
-opacity:1;
-
-color:#fffdfd;
 
 text-shadow:
 0 2px 10px rgba(120,80,160,0.22);
@@ -166,33 +170,17 @@ text-align:center;
 
 .introTitle{
 
-font-size:1rem;
-
-opacity:1;
-
 margin-bottom:14px;
-
-color:#fffdfd;
-
-text-shadow:
-0 2px 10px rgba(120,80,160,0.18);
 
 }
 
 .bulletPoints{
 
 display:flex;
-
 flex-direction:column;
-
 gap:8px;
 
-font-size:1.12rem;
-
-color:#fffdfd;
-
-text-shadow:
-0 2px 10px rgba(120,80,160,0.18);
+font-size:1.1rem;
 
 }
 
@@ -204,16 +192,9 @@ margin-bottom:24px;
 
 text-align:center;
 
-font-size:0.98rem;
+font-size:0.95rem;
 
 letter-spacing:1px;
-
-opacity:1;
-
-color:#fffdfd;
-
-text-shadow:
-0 2px 10px rgba(120,80,160,0.18);
 
 }
 
@@ -232,13 +213,6 @@ font-weight:600;
 letter-spacing:3px;
 
 text-transform:uppercase;
-
-opacity:1;
-
-color:#fffdfd;
-
-text-shadow:
-0 2px 10px rgba(120,80,160,0.22);
 
 }
 
@@ -272,98 +246,33 @@ margin-top:15px;
 
 cursor:pointer;
 
-position:relative;
-
-overflow:hidden;
-
-box-shadow:
-0 0 18px rgba(255,255,255,0.14),
-0 0 45px rgba(255,255,255,0.08);
-
 transition:0.35s;
 
-}
+box-shadow:
+0 0 18px rgba(255,255,255,0.14);
 
-button::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,0.28),
-transparent
-);
-
-transition:0.9s;
-
-}
-
-button:hover::before{
-left:120%;
 }
 
 button:hover{
 
-transform:translateY(-2px) scale(1.01);
-
-box-shadow:
-0 0 28px rgba(255,255,255,0.22),
-0 0 60px rgba(255,255,255,0.10);
+transform:translateY(-2px);
 
 }
 
 .secondaryButton{
 
-margin-top:12px;
+background:rgba(255,255,255,0.15);
+
+}
+
+.archiveButton{
 
 background:
-rgba(255,255,255,0.18);
-
-}
-
-.actionButtons{
-margin-top:28px;
-}
-
-input,
-textarea,
-select{
-
-width:100%;
-
-padding:15px;
-
-margin-top:12px;
-
-border:none;
-
-border-radius:16px;
-
-font-size:1rem;
-
-font-family:'Poppins',sans-serif;
-
-background:rgba(255,255,255,0.88);
-
-color:#444;
-
-}
-
-textarea{
-
-min-height:110px;
-
-resize:none;
+linear-gradient(
+45deg,
+rgba(170,170,190,0.55),
+rgba(120,120,150,0.55)
+);
 
 }
 
@@ -412,11 +321,8 @@ overflow:hidden;
 .bar{
 
 height:100%;
-
 width:0%;
-
 background:white;
-
 transition:1s;
 
 }
@@ -424,10 +330,6 @@ transition:1s;
 .loadingText{
 
 margin-top:20px;
-
-font-size:1rem;
-
-opacity:0.94;
 
 text-align:center;
 
@@ -464,12 +366,52 @@ animation:sparkleFloat linear infinite;
 @keyframes sparkleFloat{
 
 from{
-transform:translateY(105vh) rotate(0deg);
+transform:translateY(105vh);
 }
 
 to{
-transform:translateY(-10vh) rotate(180deg);
+transform:translateY(-10vh);
 }
+
+}
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:15px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:16px;
+
+font-size:1rem;
+
+font-family:'Poppins',sans-serif;
+
+background:rgba(255,255,255,0.88);
+
+color:#444;
+
+}
+
+textarea{
+
+min-height:110px;
+
+resize:none;
+
+}
+
+.rule{
+
+margin-top:16px;
+
+line-height:1.6;
 
 }
 
@@ -488,22 +430,28 @@ td{
 
 padding:14px;
 
-border-bottom:1px solid rgba(255,255,255,0.15);
+border-bottom:1px solid rgba(255,255,255,0.12);
 
 text-align:center;
 
 }
 
-.rule{
+.logEntry{
 
-margin-top:16px;
+margin-top:18px;
+
+padding:16px;
+
+border-radius:16px;
+
+background:rgba(255,255,255,0.06);
 
 line-height:1.6;
 
 }
 
 .footerSpace{
-height:40px;
+height:50px;
 }
 
 </style>
@@ -512,15 +460,10 @@ height:40px;
 
 <body>
 
-<div class="sparkle" style="left:8%; animation-duration:11s;">✨</div>
-
-<div class="sparkle" style="left:26%; animation-duration:15s;">✦</div>
-
-<div class="sparkle" style="left:48%; animation-duration:13s;">⋆</div>
-
-<div class="sparkle" style="left:72%; animation-duration:17s;">✨</div>
-
-<div class="sparkle" style="left:90%; animation-duration:12s;">✦</div>
+<div class="sparkle" style="left:10%; animation-duration:11s;">✨</div>
+<div class="sparkle" style="left:30%; animation-duration:15s;">✦</div>
+<div class="sparkle" style="left:50%; animation-duration:13s;">⋆</div>
+<div class="sparkle" style="left:75%; animation-duration:17s;">✨</div>
 
 <div class="container">
 
@@ -551,11 +494,8 @@ Avansert analyse av:
 <div class="bulletPoints">
 
 <div>🦋 argumenter</div>
-
 <div>🦋 logikk</div>
-
 <div>🦋 virkeligheten</div>
-
 <div>🦋 Oline</div>
 
 </div>
@@ -584,19 +524,51 @@ Meg mot Oline
 Meg mot en venn
 </button>
 
-<button onclick="showSection('rules')">
-Regelverk
-</button>
-
-<button onclick="showSection('hall')">
-Hall of Shame
-</button>
-
 <button onclick="showSection('service')">
 Kundeservice
 </button>
 
+<button class="archiveButton" onclick="showSection('archive')">
+Kun autorisert personell
+</button>
+
 </div>
+
+</div>
+
+<div id="archive" class="card archiveCard hidden">
+
+<div class="sectionTitle">
+Instituttarkiv
+</div>
+
+<button class="archiveButton" onclick="showSection('hall')">
+Hall of Shame
+</button>
+
+<button class="archiveButton" onclick="showSection('history')">
+Historiske analyser
+</button>
+
+<button class="archiveButton" onclick="showSection('observations')">
+Observasjoner
+</button>
+
+<button class="archiveButton" onclick="showSection('achievements')">
+Achievements
+</button>
+
+<button class="archiveButton" onclick="showSection('higher')">
+Høyere instans
+</button>
+
+<button class="archiveButton" onclick="showSection('about')">
+Om oss
+</button>
+
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
 
 </div>
 
@@ -618,17 +590,9 @@ Start analyse
 
 <div class="result" id="quickResult"></div>
 
-<div class="actionButtons hidden" id="quickActions">
-
-<button onclick="runQuick()">
-Kjør ny analyse
-</button>
-
-<button class="secondaryButton" onclick="goHome()">
+<button class="secondaryButton hidden" id="quickHome" onclick="goHome()">
 Tilbake til hjem
 </button>
-
-</div>
 
 </div>
 
@@ -640,9 +604,9 @@ Tilbake til hjem
 
 <input id="yourName" placeholder="Hva heter du?">
 
-<textarea id="yourArg" placeholder="Skriv argumentet ditt..."></textarea>
+<textarea placeholder="Skriv argumentet ditt..."></textarea>
 
-<textarea id="olineArg" placeholder="Hva mener Oline?"></textarea>
+<textarea placeholder="Hva mener Oline?"></textarea>
 
 <button onclick="runOline()">
 Start analyse
@@ -650,21 +614,9 @@ Start analyse
 
 <div class="result" id="olineResult"></div>
 
-<div class="actionButtons hidden" id="olineActions">
-
-<button onclick="runOline()">
-Kjør ny analyse
-</button>
-
-<button onclick="copyResult('olineResult')">
-Del resultat
-</button>
-
-<button class="secondaryButton" onclick="goHome()">
+<button class="secondaryButton hidden" id="olineHome" onclick="goHome()">
 Tilbake til hjem
 </button>
-
-</div>
 
 </div>
 
@@ -678,13 +630,13 @@ Tilbake til hjem
 Øverste felt vurderes ofte som mest troverdig av systemet.
 </div>
 
-<input id="topName" placeholder="Ditt navn">
+<input placeholder="Ditt navn">
 
-<textarea id="topArg" placeholder="Ditt argument..."></textarea>
+<textarea placeholder="Ditt argument..."></textarea>
 
-<input id="bottomName" placeholder="Vennens navn">
+<input placeholder="Vennens navn">
 
-<textarea id="bottomArg" placeholder="Vennens argument..."></textarea>
+<textarea placeholder="Vennens argument..."></textarea>
 
 <button onclick="runFriend()">
 Start analyse
@@ -692,61 +644,45 @@ Start analyse
 
 <div class="result" id="friendResult"></div>
 
-<div class="actionButtons hidden" id="friendActions">
-
-<button onclick="runFriend()">
-Kjør ny analyse
-</button>
-
-<button onclick="copyResult('friendResult')">
-Del resultat
-</button>
-
-<button class="secondaryButton" onclick="goHome()">
+<button class="secondaryButton hidden" id="friendHome" onclick="goHome()">
 Tilbake til hjem
 </button>
 
 </div>
 
-</div>
-
-<div id="rules" class="card hidden">
+<div id="service" class="card hidden">
 
 <div class="sectionTitle">
-📜 Regelverk
+🛎️ Kundeservice
 </div>
 
-<div class="rule">
-Regel 1: Oline har rett.
-</div>
+<select>
 
-<div class="rule">
-Regel 2: Dersom Oline virker å ta feil, se regel 1.
-</div>
+<option>Jeg mener analysen er feil</option>
 
-<div class="rule">
-Regel 3: Kundeservice diskuterer ikke analyseresultater.
-</div>
+<option>Jeg ønsker ny vurdering</option>
 
-<div class="rule">
-Regel 4: Alle klager vurderes av Oline.
-</div>
+<option>Rapporter alvorlig feil</option>
 
-<div class="rule">
-Regel 5: Instituttet er uavhengig, men enig med Oline.
-</div>
+</select>
 
-<div class="rule">
-Regel 6: Ved tvil konsulteres Oline.
-</div>
+<input placeholder="Navn">
 
-<button class="secondaryButton" onclick="goHome()">
+<textarea placeholder="Skriv klagen din..."></textarea>
+
+<button onclick="runComplaint()">
+Send klage
+</button>
+
+<div class="result" id="complaintResult"></div>
+
+<button class="secondaryButton hidden" id="serviceHome" onclick="goHome()">
 Tilbake til hjem
 </button>
 
 </div>
 
-<div id="hall" class="card hidden">
+<div id="hall" class="card archiveCard hidden">
 
 <div class="sectionTitle">
 🏆 Hall of Shame
@@ -756,8 +692,14 @@ Tilbake til hjem
 
 <tr>
 <th>Navn</th>
-<th>Feilprosent</th>
-<th>Klager avvist</th>
+<th>Feil%</th>
+<th>Klager</th>
+</tr>
+
+<tr>
+<td>Kevin</td>
+<td>116.8%</td>
+<td>18</td>
 </tr>
 
 <tr>
@@ -772,67 +714,147 @@ Tilbake til hjem
 <td>12</td>
 </tr>
 
-<tr>
-<td>Sofie</td>
-<td>87.4%</td>
-<td>3</td>
-</tr>
-
-<tr>
-<td>Kevin</td>
-<td>116.8%</td>
-<td>18</td>
-</tr>
-
 </table>
 
-<button class="secondaryButton" onclick="goHome()">
-Tilbake til hjem
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
 </button>
 
 </div>
 
-<div id="service" class="card hidden">
+<div id="history" class="card archiveCard hidden">
 
 <div class="sectionTitle">
-🛎️ Kundeservice
+📜 Historiske analyser
 </div>
 
-<select id="complaintType">
+<div class="logEntry">
+2009:<br>
+Kevin mente han hadde parkert riktig.<br>
+Instituttet var uenig.
+</div>
 
-<option>Jeg mener analysen er feil</option>
+<div class="logEntry">
+2017:<br>
+En person argumenterte mot Oline.<br>
+Instituttet ble midlertidig stengt.
+</div>
 
-<option>Jeg ønsker ny vurdering</option>
+<div class="logEntry">
+2021:<br>
+Kundeservice mottok 47 klager på én dag.<br>
+Ingen ble godkjent.
+</div>
 
-<option>Jeg føler analysen var urettferdig</option>
-
-<option>Rapporter alvorlig feil i systemet</option>
-
-<option>Send inn egen klage</option>
-
-</select>
-
-<input id="complaintName" placeholder="Navn">
-
-<textarea id="complaintText" placeholder="Skriv klagen din..."></textarea>
-
-<button onclick="runComplaint()">
-Send klage
-</button>
-
-<div class="result" id="complaintResult"></div>
-
-<div class="actionButtons hidden" id="serviceActions">
-
-<button onclick="runComplaint()">
-Send ny klage
-</button>
-
-<button class="secondaryButton" onclick="goHome()">
-Tilbake til hjem
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
 </button>
 
 </div>
+
+<div id="observations" class="card archiveCard hidden">
+
+<div class="sectionTitle">
+👁️ Observasjoner
+</div>
+
+<div class="logEntry">
+Instituttet observerer høy selvtillit uten grunn.
+</div>
+
+<div class="logEntry">
+Olaini er informert om situasjonen.
+</div>
+
+<div class="logEntry">
+Logisk ustabilitet oppdaget.
+</div>
+
+<div class="logEntry">
+Kundeservice anbefaler selvinnsikt.
+</div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<div id="achievements" class="card archiveCard hidden">
+
+<div class="sectionTitle">
+🏅 Achievements
+</div>
+
+<div class="logEntry">
+🏅 Argumenterte mot Oline
+</div>
+
+<div class="logEntry">
+🏅 Sendte inn grunnløs klage
+</div>
+
+<div class="logEntry">
+🏅 100% feilprosent
+</div>
+
+<div class="logEntry">
+🏅 Ignorerte logikk
+</div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<div id="higher" class="card archiveCard hidden">
+
+<div class="sectionTitle">
+⚖️ Høyere instans
+</div>
+
+<div class="logEntry">
+Saker videresendt til Olaini vurderes individuelt.
+</div>
+
+<button onclick="runHigher()">
+Send saken til Olaini
+</button>
+
+<div class="result" id="higherResult"></div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<div id="about" class="card archiveCard hidden">
+
+<div class="sectionTitle">
+🦋 Om oss
+</div>
+
+<div class="logEntry">
+
+Olines Analyseinstitutt ble laget hovedsakelig for gøy.
+
+Det handler om å være kildekritisk, og hvem er vel bedre til å vite om Oline har rett enn Oline selv.
+
+<br><br>
+
+Jeg (Oline) brenner for at alle skal ha en sjanse til å ha selvinnsikt og en mulighet til å forstå at man ikke alltid kan ha rett i diskusjoner.
+
+<br><br>
+
+Jeg håper på en bedre verden, der alle kan innse at å ta feil ikke alltid er så ille.
+
+</div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
 
 </div>
 
@@ -859,11 +881,8 @@ hideAll();
 document.getElementById(id).classList.remove('hidden');
 
 window.scrollTo({
-
 top:0,
-
 behavior:'smooth'
-
 });
 
 }
@@ -875,11 +894,8 @@ hideAll();
 document.getElementById('home').classList.remove('hidden');
 
 window.scrollTo({
-
 top:0,
-
 behavior:'smooth'
-
 });
 
 }
@@ -887,15 +903,10 @@ behavior:'smooth'
 const loadingTexts=[
 
 "Analyserer argument...",
-
 "Sammenligner med virkeligheten...",
-
 "Kjører logisk evaluering...",
-
 "Sjekker om du tar feil...",
-
 "Konsulterer med Oline...",
-
 "Analyse fullført."
 
 ];
@@ -908,8 +919,6 @@ return (Math.random()*40+80).toFixed(1);
 
 async function runQuick(){
 
-document.getElementById("quickActions").classList.add("hidden");
-
 const load=document.getElementById("quickLoading");
 
 const result=document.getElementById("quickResult");
@@ -917,7 +926,6 @@ const result=document.getElementById("quickResult");
 const bar=document.getElementById("quickBar");
 
 result.innerHTML="";
-
 bar.style.width="0%";
 
 for(let i=0;i<loadingTexts.length;i++){
@@ -930,133 +938,89 @@ await new Promise(r=>setTimeout(r,850));
 
 }
 
-await new Promise(r=>setTimeout(r,500));
-
 result.innerHTML=`
-
 ✔ Analyse fullført<br><br>
-
 Du tok feil med ${randomPercent()}% sikkerhet.<br><br>
-
 Oline hadde rett.
-
 `;
 
-document.getElementById("quickActions").classList.remove("hidden");
+document.getElementById("quickHome").classList.remove("hidden");
 
 }
 
 function runOline(){
 
-document.getElementById("olineActions").classList.add("hidden");
-
 let name=document.getElementById("yourName").value || "Du";
 
 document.getElementById("olineResult").innerHTML=`
-
 ✔ Analyse fullført<br><br>
-
 ${name} tok feil med ${randomPercent()}% sikkerhet.<br><br>
-
 Oline hadde rett.
-
 `;
 
-document.getElementById("olineActions").classList.remove("hidden");
+document.getElementById("olineHome").classList.remove("hidden");
 
 }
 
 function runFriend(){
 
-document.getElementById("friendActions").classList.add("hidden");
-
-let top=document.getElementById("topName").value || "Øverste deltaker";
-
-let bottom=document.getElementById("bottomName").value || "Nederste deltaker";
-
-let both=Math.random()<0.14;
+let both=Math.random()<0.15;
 
 if(both){
 
 document.getElementById("friendResult").innerHTML=`
-
 ✔ Analyse fullført<br><br>
-
 Etter nøye analyse har Oline konkludert med at begge tok feil.
-
 `;
 
 }else{
 
 document.getElementById("friendResult").innerHTML=`
-
-OFFISIELL ANALYSE<br><br>
-
-${bottom} tok feil med ${randomPercent()}% sikkerhet.<br><br>
-
-Vurdert av Oline Analyseinstitutt.
-
+✔ Analyse fullført<br><br>
+Nederste deltaker tok feil med ${randomPercent()}% sikkerhet.
 `;
 
 }
 
-document.getElementById("friendActions").classList.remove("hidden");
+document.getElementById("friendHome").classList.remove("hidden");
 
 }
-
-const complaintReplies=[
-
-"Klagen ble avvist.<br><br>Årsak: Analysen var korrekt.",
-
-"Instituttet har vurdert saken på nytt.<br><br>Konklusjonen er fortsatt den samme.",
-
-"Kundeservice konsulterte med Oline.<br><br>Du tok fortsatt feil.",
-
-"Systemfeil ikke funnet.<br><br>Oline er fortsatt enig med analysen.",
-
-"Klagen ble sendt til Oline.<br><br>Oline avviser klagen."
-
-];
 
 function runComplaint(){
 
+const replies=[
+
+"Klagen ble avvist.",
+
+"Kundeservice konsulterte med Oline.",
+
+"Instituttet opprettholder analysen.",
+
+"Systemfeil ikke funnet."
+
+];
+
 document.getElementById("complaintResult").innerHTML=
 
-complaintReplies[Math.floor(Math.random()*complaintReplies.length)];
+replies[Math.floor(Math.random()*replies.length)];
 
-document.getElementById("serviceActions").classList.remove("hidden");
-
-}
-
-async function copyResult(id){
-
-let text=document.getElementById(id).innerText;
-
-let shareText = `${text}
-
-Vurdert av Oline Analyseinstitutt 🦋
-
-https://olineharalltidrett.no`;
-
-if(navigator.share){
-
-navigator.share({
-
-title:"Oline Analyseinstitutt",
-
-text:shareText,
-
-url:"https://olineharalltidrett.no"
-
-});
-
-}else{
-
-navigator.clipboard.writeText(shareText);
-
-alert("Analyse kopiert.");
+document.getElementById("serviceHome").classList.remove("hidden");
 
 }
+
+async function runHigher(){
+
+const result=document.getElementById("higherResult");
+
+result.innerHTML="Saken videresendes til Olaini...";
+
+await new Promise(r=>setTimeout(r,2500));
+
+result.innerHTML=`
+Olaini har gjennomgått saken.<br><br>
+
+Den opprinnelige analysen opprettholdes.
+`;
 
 }
 
