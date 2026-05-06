@@ -1,200 +1,542 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Oline Analyseinstitutt</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial,sans-serif;
-color:white;
-overflow-x:hidden;
-background:linear-gradient(-45deg,#ffb6f9,#b6d0ff,#d6b6ff,#ffd6f0);
-background-size:400% 400%;
-animation:bg 15s ease infinite;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.container{
-max-width:700px;
-margin:auto;
-padding:25px;
-text-align:center;
-}
-
-.card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-padding:25px;
-border-radius:25px;
-margin-top:20px;
-box-shadow:0 0 20px rgba(255,255,255,0.2);
-animation:fadein 1s;
-}
-
-@keyframes fadein{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-h1{
-font-size:2.3rem;
-margin-bottom:5px;
-}
-
-.subtitle{
-opacity:0.8;
-margin-bottom:20px;
-}
-
-button{
-background:linear-gradient(45deg,#ff7edb,#8eb8ff);
-border:none;
-padding:15px 22px;
-border-radius:15px;
-color:white;
-font-size:1rem;
-margin-top:12px;
-cursor:pointer;
-box-shadow:0 0 15px rgba(255,255,255,0.4);
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.03);
-}
-
-input, textarea, select{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-margin-top:10px;
-font-size:1rem;
+padding:0;
 box-sizing:border-box;
 }
 
-textarea{
-height:100px;
-resize:none;
+body{
+
+font-family:'Poppins',sans-serif;
+color:white;
+overflow-x:hidden;
+min-height:100vh;
+
+background:linear-gradient(
+-45deg,
+#f7b7ff,
+#c8d8ff,
+#e2c4ff,
+#ffd6ec
+);
+
+background-size:400% 400%;
+animation:bgFlow 18s ease infinite;
+
+padding:20px;
+
 }
 
-.hidden{
-display:none;
+@keyframes bgFlow{
+
+0%{
+background-position:0% 50%;
 }
 
-.sparkle{
-position:fixed;
-font-size:18px;
-animation:float 10s linear infinite;
-opacity:0.7;
-pointer-events:none;
+50%{
+background-position:100% 50%;
 }
 
-@keyframes float{
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.container{
+
+max-width:720px;
+margin:auto;
+
+}
+
+.card{
+
+background:rgba(255,255,255,0.14);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.15);
+
+padding:30px;
+
+border-radius:30px;
+
+box-shadow:
+0 0 35px rgba(255,255,255,0.12),
+0 0 80px rgba(255,255,255,0.06);
+
+animation:fadeIn 1s ease;
+
+margin-top:20px;
+
+}
+
+@keyframes fadeIn{
+
 from{
-transform:translateY(100vh);
+opacity:0;
+transform:translateY(15px);
 }
+
 to{
-transform:translateY(-10vh);
-}
-}
-
-.progress{
-width:100%;
-height:10px;
-background:rgba(255,255,255,0.2);
-border-radius:20px;
-margin-top:20px;
-overflow:hidden;
+opacity:1;
+transform:translateY(0);
 }
 
-.bar{
-height:100%;
-width:0%;
-background:white;
-transition:1s;
 }
 
-.result{
-font-size:1.3rem;
-margin-top:20px;
-line-height:1.6;
+.mainTitle{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:4rem;
+
+line-height:0.95;
+
+text-align:center;
+
+margin-top:10px;
+
+text-shadow:0 0 18px rgba(255,255,255,0.25);
+
+}
+
+.subtitle{
+
+text-align:center;
+
+margin-top:18px;
+
+font-size:1rem;
+
+opacity:0.82;
+
+}
+
+.introText{
+
+margin-top:35px;
+
+text-align:center;
+
+}
+
+.introTitle{
+
+font-size:1rem;
+
+opacity:0.85;
+
+margin-bottom:18px;
+
+}
+
+.bulletPoints{
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+font-size:1.08rem;
+
+opacity:0.96;
+
+}
+
+.online{
+
+margin-top:30px;
+
+text-align:center;
+
+font-size:0.9rem;
+
+opacity:0.8;
+
+}
+
+.modeTitle{
+
+margin-top:38px;
+
+margin-bottom:20px;
+
+text-align:center;
+
+font-size:0.9rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+opacity:0.7;
+
 }
 
 .menu button{
+
 display:block;
 width:100%;
+
 }
 
-.small{
+button{
+
+background:linear-gradient(
+45deg,
+#ff7fd5,
+#9db9ff
+);
+
+border:none;
+
+padding:18px;
+
+border-radius:18px;
+
+color:white;
+
+font-size:1rem;
+
+margin-top:14px;
+
+cursor:pointer;
+
+font-weight:500;
+
+box-shadow:
+0 0 15px rgba(255,255,255,0.15),
+0 0 35px rgba(255,255,255,0.08);
+
+transition:0.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.25),
+transparent
+);
+
+transition:0.8s;
+
+}
+
+button:hover::before{
+
+left:120%;
+
+}
+
+button:hover{
+
+transform:translateY(-2px) scale(1.01);
+
+box-shadow:
+0 0 25px rgba(255,255,255,0.22),
+0 0 60px rgba(255,255,255,0.12);
+
+}
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:15px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:16px;
+
+font-size:1rem;
+
+font-family:'Poppins',sans-serif;
+
+background:rgba(255,255,255,0.88);
+
+color:#444;
+
+}
+
+textarea{
+
+min-height:110px;
+
+resize:none;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+.sectionTitle{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.4rem;
+
+margin-bottom:20px;
+
+text-align:center;
+
+}
+
+.result{
+
+margin-top:25px;
+
+line-height:1.8;
+
+font-size:1.08rem;
+
+}
+
+.progress{
+
+width:100%;
+
+height:12px;
+
+background:rgba(255,255,255,0.16);
+
+border-radius:30px;
+
+margin-top:22px;
+
+overflow:hidden;
+
+}
+
+.bar{
+
+height:100%;
+
+width:0%;
+
+background:white;
+
+transition:1s;
+
+}
+
+.smallInfo{
+
 font-size:0.9rem;
-opacity:0.8;
-margin-top:10px;
+
+opacity:0.75;
+
+margin-bottom:12px;
+
+text-align:center;
+
+}
+
+.sparkle{
+
+position:fixed;
+
+pointer-events:none;
+
+font-size:18px;
+
+opacity:0.7;
+
+animation:sparkleFloat linear infinite;
+
+}
+
+@keyframes sparkleFloat{
+
+from{
+
+transform:translateY(105vh) rotate(0deg);
+
+}
+
+to{
+
+transform:translateY(-10vh) rotate(180deg);
+
+}
+
 }
 
 table{
+
 width:100%;
+
 margin-top:20px;
+
 border-collapse:collapse;
+
 }
 
-td,th{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.2);
+th,td{
+
+padding:14px;
+
+border-bottom:1px solid rgba(255,255,255,0.15);
+
+text-align:center;
+
+}
+
+.rule{
+
+margin-top:15px;
+
+line-height:1.6;
+
+}
+
+.loadingText{
+
+margin-top:20px;
+
+font-size:1rem;
+
+opacity:0.9;
+
+text-align:center;
+
+min-height:25px;
+
+}
+
+.copyText{
+
+margin-top:10px;
+
+font-size:0.85rem;
+
+opacity:0.7;
+
+text-align:center;
+
+}
+
+.footerSpace{
+
+height:40px;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="sparkle" style="left:10%">✨</div>
-<div class="sparkle" style="left:30%;animation-delay:2s;">✦</div>
-<div class="sparkle" style="left:50%;animation-delay:5s;">⋆</div>
-<div class="sparkle" style="left:70%;animation-delay:1s;">✨</div>
-<div class="sparkle" style="left:90%;animation-delay:4s;">✦</div>
+<div class="sparkle" style="left:8%; animation-duration:11s;">✨</div>
+<div class="sparkle" style="left:24%; animation-duration:15s;">✦</div>
+<div class="sparkle" style="left:46%; animation-duration:12s;">⋆</div>
+<div class="sparkle" style="left:68%; animation-duration:17s;">✨</div>
+<div class="sparkle" style="left:88%; animation-duration:13s;">✦</div>
 
 <div class="container">
 
 <div class="card">
 
-<h1>🦋 Oline Analyseinstitutt</h1>
+<h1 class="mainTitle">
+Oline<br>
+Analyseinstitutt 🦋
+</h1>
 
 <div class="subtitle">
 Uavhengig vurdering av diskusjoner siden 2026
 </div>
 
-<p>
-Systemet analyserer diskusjoner og avgjør hvem som har rett.
-</p>
+<div class="introText">
 
-<p>
-Instituttet er basert på avansert logikk og Olines vurderinger.
-</p>
+<div class="introTitle">
+Avansert analyse av:
+</div>
+
+<div class="bulletPoints">
+
+<div>argumenter</div>
+<div>logikk</div>
+<div>virkeligheten</div>
+<div>Oline</div>
+
+</div>
+
+</div>
+
+<div class="online">
+● Instituttet er online
+</div>
+
+<div class="modeTitle">
+Velg analysemodus
+</div>
 
 <div class="menu">
 
-<button onclick="showSection('quick')">Start hurtiganalyse</button>
+<button onclick="showSection('quick')">
+Start hurtiganalyse
+</button>
 
-<button onclick="showSection('oline')">Meg mot Oline</button>
+<button onclick="showSection('oline')">
+Meg mot Oline
+</button>
 
-<button onclick="showSection('friend')">Meg mot en venn</button>
+<button onclick="showSection('friend')">
+Meg mot en venn
+</button>
 
-<button onclick="showSection('rules')">Regelverk</button>
+<button onclick="showSection('rules')">
+Regelverk
+</button>
 
-<button onclick="showSection('hall')">Hall of Shame</button>
+<button onclick="showSection('hall')">
+Hall of Shame
+</button>
 
-<button onclick="showSection('service')">Kundeservice</button>
+<button onclick="showSection('service')">
+Kundeservice
+</button>
 
 </div>
 
@@ -202,11 +544,15 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <div id="quick" class="card hidden">
 
-<h2>Hurtiganalyse</h2>
+<div class="sectionTitle">
+Hurtiganalyse
+</div>
 
-<button onclick="runQuick()">Start analyse</button>
+<button onclick="runQuick()">
+Start analyse
+</button>
 
-<div id="quickLoading"></div>
+<div class="loadingText" id="quickLoading"></div>
 
 <div class="progress">
 <div class="bar" id="quickBar"></div>
@@ -218,7 +564,9 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <div id="oline" class="card hidden">
 
-<h2>⚖️ Meg mot Oline</h2>
+<div class="sectionTitle">
+⚖️ Meg mot Oline
+</div>
 
 <input id="yourName" placeholder="Hva heter du?">
 
@@ -226,19 +574,29 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <textarea id="olineArg" placeholder="Hva mener Oline?"></textarea>
 
-<button onclick="runOline()">Start analyse</button>
+<button onclick="runOline()">
+Start analyse
+</button>
 
 <div class="result" id="olineResult"></div>
 
-<button onclick="copyResult('olineResult')">Del resultat</button>
+<button onclick="copyResult('olineResult')">
+Del resultat
+</button>
+
+<div class="copyText">
+Kopierer analyse til utklippstavlen
+</div>
 
 </div>
 
 <div id="friend" class="card hidden">
 
-<h2>👥 Meg mot en venn</h2>
+<div class="sectionTitle">
+👥 Meg mot en venn
+</div>
 
-<div class="small">
+<div class="smallInfo">
 Øverste felt vurderes ofte som mest troverdig av systemet.
 </div>
 
@@ -250,35 +608,55 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <textarea id="bottomArg" placeholder="Vennens argument..."></textarea>
 
-<button onclick="runFriend()">Start analyse</button>
+<button onclick="runFriend()">
+Start analyse
+</button>
 
 <div class="result" id="friendResult"></div>
 
-<button onclick="copyResult('friendResult')">Del resultat</button>
+<button onclick="copyResult('friendResult')">
+Del resultat
+</button>
 
 </div>
 
 <div id="rules" class="card hidden">
 
-<h2>📜 Regelverk</h2>
+<div class="sectionTitle">
+📜 Regelverk
+</div>
 
-<p>Regel 1: Oline har rett.</p>
+<div class="rule">
+Regel 1: Oline har rett.
+</div>
 
-<p>Regel 2: Dersom Oline virker å ta feil, se regel 1.</p>
+<div class="rule">
+Regel 2: Dersom Oline virker å ta feil, se regel 1.
+</div>
 
-<p>Regel 3: Kundeservice diskuterer ikke analyseresultater.</p>
+<div class="rule">
+Regel 3: Kundeservice diskuterer ikke analyseresultater.
+</div>
 
-<p>Regel 4: Alle klager vurderes av Oline.</p>
+<div class="rule">
+Regel 4: Alle klager vurderes av Oline.
+</div>
 
-<p>Regel 5: Instituttet er uavhengig, men enig med Oline.</p>
+<div class="rule">
+Regel 5: Instituttet er uavhengig, men enig med Oline.
+</div>
 
-<p>Regel 6: Ved tvil konsulteres Oline.</p>
+<div class="rule">
+Regel 6: Ved tvil konsulteres Oline.
+</div>
 
 </div>
 
 <div id="hall" class="card hidden">
 
-<h2>🏆 Hall of Shame</h2>
+<div class="sectionTitle">
+🏆 Hall of Shame
+</div>
 
 <table>
 
@@ -296,19 +674,19 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <tr>
 <td>Emil</td>
-<td>98.7%</td>
+<td>98.1%</td>
 <td>12</td>
 </tr>
 
 <tr>
 <td>Sofie</td>
-<td>87.2%</td>
+<td>87.4%</td>
 <td>3</td>
 </tr>
 
 <tr>
 <td>Kevin</td>
-<td>116.4%</td>
+<td>116.8%</td>
 <td>18</td>
 </tr>
 
@@ -318,19 +696,31 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <div id="service" class="card hidden">
 
-<h2>🛎️ Kundeservice</h2>
+<div class="sectionTitle">
+🛎️ Kundeservice
+</div>
 
 <select id="complaintType">
 
-<option>Jeg mener analysen er feil</option>
+<option>
+Jeg mener analysen er feil
+</option>
 
-<option>Jeg ønsker ny vurdering</option>
+<option>
+Jeg ønsker ny vurdering
+</option>
 
-<option>Jeg føler analysen var urettferdig</option>
+<option>
+Jeg føler analysen var urettferdig
+</option>
 
-<option>Rapporter alvorlig feil i systemet</option>
+<option>
+Rapporter alvorlig feil i systemet
+</option>
 
-<option>Send inn egen klage</option>
+<option>
+Send inn egen klage
+</option>
 
 </select>
 
@@ -338,11 +728,15 @@ Instituttet er basert på avansert logikk og Olines vurderinger.
 
 <textarea id="complaintText" placeholder="Skriv klagen din..."></textarea>
 
-<button onclick="runComplaint()">Send klage</button>
+<button onclick="runComplaint()">
+Send klage
+</button>
 
 <div class="result" id="complaintResult"></div>
 
 </div>
+
+<div class="footerSpace"></div>
 
 </div>
 
@@ -360,15 +754,22 @@ card.classList.add('hidden');
 
 document.getElementById(id).classList.remove('hidden');
 
+window.scrollTo({
+top:document.getElementById(id).offsetTop-10,
+behavior:'smooth'
+});
+
 }
 
 const loadingTexts=[
+
 "Analyserer argument...",
 "Sammenligner med virkeligheten...",
 "Kjører logisk evaluering...",
 "Sjekker om du tar feil...",
 "Konsulterer med Oline...",
 "Analyse fullført."
+
 ];
 
 function randomPercent(){
@@ -380,10 +781,13 @@ return (Math.random()*40+80).toFixed(1);
 async function runQuick(){
 
 const load=document.getElementById("quickLoading");
+
 const result=document.getElementById("quickResult");
+
 const bar=document.getElementById("quickBar");
 
 result.innerHTML="";
+
 bar.style.width="0%";
 
 for(let i=0;i<loadingTexts.length;i++){
@@ -392,13 +796,20 @@ load.innerHTML=loadingTexts[i];
 
 bar.style.width=((i+1)/loadingTexts.length*100)+"%";
 
-await new Promise(r=>setTimeout(r,900));
+await new Promise(r=>setTimeout(r,850));
 
 }
 
+await new Promise(r=>setTimeout(r,500));
+
 result.innerHTML=`
+
+✔ Analyse fullført<br><br>
+
 Du tok feil med ${randomPercent()}% sikkerhet.<br><br>
+
 Oline hadde rett.
+
 `;
 
 }
@@ -412,21 +823,25 @@ let both=Math.random()<0.18;
 if(both){
 
 document.getElementById("olineResult").innerHTML=`
-Analyse fullført.<br><br>
+
+✔ Analyse fullført<br><br>
 
 Instituttet oppdaget alvorlige logiske feil hos begge parter.<br><br>
 
 Oline har avgjort at begge tok feil.
+
 `;
 
 }else{
 
 document.getElementById("olineResult").innerHTML=`
-Analyse fullført.<br><br>
+
+✔ Analyse fullført<br><br>
 
 ${name} tok feil med ${randomPercent()}% sikkerhet.<br><br>
 
 Oline hadde rett.
+
 `;
 
 }
@@ -439,26 +854,28 @@ let top=document.getElementById("topName").value || "Øverste deltaker";
 
 let bottom=document.getElementById("bottomName").value || "Nederste deltaker";
 
-let both=Math.random()<0.15;
+let both=Math.random()<0.14;
 
 if(both){
 
 document.getElementById("friendResult").innerHTML=`
-Analyse fullført.<br><br>
+
+✔ Analyse fullført<br><br>
 
 Etter nøye analyse har Oline konkludert med at begge tok feil.
+
 `;
 
 }else{
 
 document.getElementById("friendResult").innerHTML=`
+
 OFFISIELL ANALYSE<br><br>
 
-${bottom} tok feil.<br><br>
-
-Sikkerhet: ${randomPercent()}%<br><br>
+${bottom} tok feil med ${randomPercent()}% sikkerhet.<br><br>
 
 Vurdert av Oline Analyseinstitutt.
+
 `;
 
 }
