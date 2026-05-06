@@ -22,15 +22,10 @@ box-sizing:border-box;
 }
 
 body{
-
 font-family:'Poppins',sans-serif;
-
 color:white;
-
 overflow-x:hidden;
-
 min-height:100vh;
-
 padding:20px;
 
 background:
@@ -43,33 +38,20 @@ linear-gradient(
 );
 
 background-size:400% 400%;
-
 animation:bgFlow 18s ease infinite;
-
 }
 
 @keyframes bgFlow{
 
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
 }
 
 .container{
-
 max-width:720px;
-
 margin:auto;
-
 }
 
 .card{
@@ -111,11 +93,8 @@ transform:translateY(0);
 .mainTitle{
 
 display:flex;
-
 flex-direction:column;
-
 align-items:center;
-
 justify-content:center;
 
 gap:2px;
@@ -264,11 +243,8 @@ text-shadow:
 }
 
 .menu button{
-
 display:block;
-
 width:100%;
-
 }
 
 button{
@@ -333,9 +309,7 @@ transition:0.9s;
 }
 
 button:hover::before{
-
 left:120%;
-
 }
 
 button:hover{
@@ -358,9 +332,7 @@ rgba(255,255,255,0.18);
 }
 
 .actionButtons{
-
 margin-top:28px;
-
 }
 
 input,
@@ -396,9 +368,7 @@ resize:none;
 }
 
 .hidden{
-
 display:none;
-
 }
 
 .sectionTitle{
@@ -477,18 +447,6 @@ text-align:center;
 
 }
 
-.copyText{
-
-margin-top:10px;
-
-font-size:0.85rem;
-
-opacity:0.78;
-
-text-align:center;
-
-}
-
 .sparkle{
 
 position:fixed;
@@ -545,9 +503,7 @@ line-height:1.6;
 }
 
 .footerSpace{
-
 height:40px;
-
 }
 
 </style>
@@ -844,25 +800,15 @@ Tilbake til hjem
 
 <select id="complaintType">
 
-<option>
-Jeg mener analysen er feil
-</option>
+<option>Jeg mener analysen er feil</option>
 
-<option>
-Jeg ønsker ny vurdering
-</option>
+<option>Jeg ønsker ny vurdering</option>
 
-<option>
-Jeg føler analysen var urettferdig
-</option>
+<option>Jeg føler analysen var urettferdig</option>
 
-<option>
-Rapporter alvorlig feil i systemet
-</option>
+<option>Rapporter alvorlig feil i systemet</option>
 
-<option>
-Send inn egen klage
-</option>
+<option>Send inn egen klage</option>
 
 </select>
 
@@ -1006,22 +952,6 @@ document.getElementById("olineActions").classList.add("hidden");
 
 let name=document.getElementById("yourName").value || "Du";
 
-let both=Math.random()<0.18;
-
-if(both){
-
-document.getElementById("olineResult").innerHTML=`
-
-✔ Analyse fullført<br><br>
-
-Instituttet oppdaget alvorlige logiske feil hos begge parter.<br><br>
-
-Oline har avgjort at begge tok feil.
-
-`;
-
-}else{
-
 document.getElementById("olineResult").innerHTML=`
 
 ✔ Analyse fullført<br><br>
@@ -1031,8 +961,6 @@ ${name} tok feil med ${randomPercent()}% sikkerhet.<br><br>
 Oline hadde rett.
 
 `;
-
-}
 
 document.getElementById("olineActions").classList.remove("hidden");
 
