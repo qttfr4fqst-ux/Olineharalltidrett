@@ -348,6 +348,21 @@ box-shadow:
 
 }
 
+.secondaryButton{
+
+margin-top:12px;
+
+background:
+rgba(255,255,255,0.18);
+
+}
+
+.actionButtons{
+
+margin-top:28px;
+
+}
+
 input,
 textarea,
 select{
@@ -553,7 +568,7 @@ height:40px;
 
 <div class="container">
 
-<div class="card">
+<div class="card" id="home">
 
 <h1 class="mainTitle">
 
@@ -647,6 +662,18 @@ Start analyse
 
 <div class="result" id="quickResult"></div>
 
+<div class="actionButtons hidden" id="quickActions">
+
+<button onclick="runQuick()">
+Kjør ny analyse
+</button>
+
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
 </div>
 
 <div id="oline" class="card hidden">
@@ -667,12 +694,20 @@ Start analyse
 
 <div class="result" id="olineResult"></div>
 
+<div class="actionButtons hidden" id="olineActions">
+
+<button onclick="runOline()">
+Kjør ny analyse
+</button>
+
 <button onclick="copyResult('olineResult')">
 Del resultat
 </button>
 
-<div class="copyText">
-Kopierer analyse til utklippstavlen
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
+
 </div>
 
 </div>
@@ -701,9 +736,21 @@ Start analyse
 
 <div class="result" id="friendResult"></div>
 
+<div class="actionButtons hidden" id="friendActions">
+
+<button onclick="runFriend()">
+Kjør ny analyse
+</button>
+
 <button onclick="copyResult('friendResult')">
 Del resultat
 </button>
+
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
 
 </div>
 
@@ -736,6 +783,10 @@ Regel 5: Instituttet er uavhengig, men enig med Oline.
 <div class="rule">
 Regel 6: Ved tvil konsulteres Oline.
 </div>
+
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
 
 </div>
 
@@ -779,6 +830,10 @@ Regel 6: Ved tvil konsulteres Oline.
 
 </table>
 
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
+
 </div>
 
 <div id="service" class="card hidden">
@@ -821,6 +876,18 @@ Send klage
 
 <div class="result" id="complaintResult"></div>
 
+<div class="actionButtons hidden" id="serviceActions">
+
+<button onclick="runComplaint()">
+Send ny klage
+</button>
+
+<button class="secondaryButton" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
 </div>
 
 <div class="footerSpace"></div>
@@ -829,23 +896,41 @@ Send klage
 
 <script>
 
-function showSection(id){
+function hideAll(){
 
 document.querySelectorAll('.card').forEach(card=>{
 
-if(card.id){
-
 card.classList.add('hidden');
+
+});
 
 }
 
-});
+function showSection(id){
+
+hideAll();
 
 document.getElementById(id).classList.remove('hidden');
 
 window.scrollTo({
 
-top:document.getElementById(id).offsetTop-10,
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+function goHome(){
+
+hideAll();
+
+document.getElementById('home').classList.remove('hidden');
+
+window.scrollTo({
+
+top:0,
 
 behavior:'smooth'
 
@@ -876,6 +961,8 @@ return (Math.random()*40+80).toFixed(1);
 }
 
 async function runQuick(){
+
+document.getElementById("quickActions").classList.add("hidden");
 
 const load=document.getElementById("quickLoading");
 
@@ -909,9 +996,13 @@ Oline hadde rett.
 
 `;
 
+document.getElementById("quickActions").classList.remove("hidden");
+
 }
 
 function runOline(){
+
+document.getElementById("olineActions").classList.add("hidden");
 
 let name=document.getElementById("yourName").value || "Du";
 
@@ -943,9 +1034,13 @@ Oline hadde rett.
 
 }
 
+document.getElementById("olineActions").classList.remove("hidden");
+
 }
 
 function runFriend(){
+
+document.getElementById("friendActions").classList.add("hidden");
 
 let top=document.getElementById("topName").value || "Øverste deltaker";
 
@@ -977,6 +1072,8 @@ Vurdert av Oline Analyseinstitutt.
 
 }
 
+document.getElementById("friendActions").classList.remove("hidden");
+
 }
 
 const complaintReplies=[
@@ -999,15 +1096,39 @@ document.getElementById("complaintResult").innerHTML=
 
 complaintReplies[Math.floor(Math.random()*complaintReplies.length)];
 
+document.getElementById("serviceActions").classList.remove("hidden");
+
 }
 
-function copyResult(id){
+async function copyResult(id){
 
 let text=document.getElementById(id).innerText;
 
-navigator.clipboard.writeText(text);
+let shareText = `${text}
+
+Vurdert av Oline Analyseinstitutt 🦋
+
+https://olineharalltidrett.no`;
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Oline Analyseinstitutt",
+
+text:shareText,
+
+url:"https://olineharalltidrett.no"
+
+});
+
+}else{
+
+navigator.clipboard.writeText(shareText);
 
 alert("Analyse kopiert.");
+
+}
 
 }
 
