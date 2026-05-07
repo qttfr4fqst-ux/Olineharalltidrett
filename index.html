@@ -1952,6 +1952,491 @@ randomSmallPopup();
 },1200);
 
 };
+  /* =========================
+INSTITUTTAVIS PATCH
+LIM INN OVER </script>
+========================= */
+
+/* ===== AVIS KNAPP PÅ HOVEDMENY ===== */
+
+const homeButtons =
+document.querySelector("#home .modeTitle");
+
+const newsButton = document.createElement("button");
+
+newsButton.innerHTML = "📰 Instituttavisen";
+
+newsButton.onclick = () => {
+openInstituteNews();
+};
+
+homeButtons.parentNode.insertBefore(
+newsButton,
+homeButtons.nextSibling
+);
+
+/* ===== DAGENS AVIS ===== */
+
+const today =
+new Date().getDate();
+
+const newspaperSets = [
+
+/* ===== AVIS 1 ===== */
+
+[
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Tre nye klager avvist siste time",
+content:"Instituttet rapporterer om økning i brukere som nekter å godta analyseresultater."
+},
+
+{
+category:"🧠 FORSKNING",
+title:"Ny studie om lav batteriprosent",
+content:"Intern forskning peker mot en mulig kobling mellom lav batteriprosent og dramatisk dårligere beslutningstaking."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"IT-support vurderer oppsigelse",
+content:"Etter flere timer med klager og analysefeil vurderer IT-avdelingen å flytte ut i skogen."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Olaini nekter videre kommentar",
+content:"Høyeste rett avsluttet dagens pressekonferanse etter spørsmål om IQ-statistikk."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Kaffemaskinen stoppet instituttet",
+content:"Kaffeansvarlig beskriver situasjonen som “kritisk men forventet”."
+}
+
+],
+
+/* ===== AVIS 2 ===== */
+
+[
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Instituttet observerer dårlig argumentasjon etter kl. 22",
+content:"Flere analyser viser kraftig økning i følelsesstyrte argumenter sent på kveld."
+},
+
+{
+category:"🧠 FORSKNING",
+title:"Ny observasjon rundt håndholding",
+content:"Forskningsteamet mener teorien om beskyttelsesinstinkt fortsatt er mistenkelig sannsynlig."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Vaktmester nekter tilgang til arkivrom 3",
+content:"Instituttet nekter å kommentere hendelsen som fant sted tidligere i år."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Praktikanten tok pause på ubestemt tid",
+content:"HR-avdelingen beskriver situasjonen som “emosjonelt forståelig”."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Nytt observasjonssystem aktivert",
+content:"Instituttet følger nå ekstra nøye med på brukere som sender inn flere klager."
+}
+
+],
+
+/* ===== AVIS 3 ===== */
+
+[
+
+{
+category:"🧠 FORSKNING",
+title:"Instituttet undersøker “ok.” fenomenet",
+content:"Foreløpige analyser viser at aggressive punktum ofte indikerer dårlig stemning."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Systemfeil aktivert mot bruker",
+content:"Tiltaket ble satt inn etter gjentatte forsøk på å argumentere mot Oline."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"HR-avdelingen vurderer gruppeterapi",
+content:"Flere ansatte rapporterer om redusert tro på menneskeheten."
+},
+
+{
+category:"🧠 FORSKNING",
+title:"Ny teori om butikk-hastighet",
+content:"Instituttet mener mennesker går raskere når de later som de vet hvor de skal."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Arkivansvarlig nekter å lese sak #442 igjen",
+content:"Dokumentet beskrives internt som “mentalt belastende”."
+}
+
+],
+
+/* ===== AVIS 4 ===== */
+
+[
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Olaini varslet om ny sak",
+content:"Saken inneholder angivelig ekstremt dårlig kommunikasjon."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Kaffeansvarlig truet med nedstenging",
+content:"Instituttet var uten kaffe i totalt 14 minutter."
+},
+
+{
+category:"🧠 FORSKNING",
+title:"Forskning rundt “jeg kommer snart”",
+content:"Instituttet har fortsatt ikke funnet bevis på at uttrykket beskriver faktisk tid."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Ny observasjon registrert",
+content:"Systemet rapporterer om høy selvtillit kombinert med svak dokumentasjon."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"IT-support beskrevet som “sliten”",
+content:"Ansatte rapporterer om aggressiv stirring på skjerm."
+}
+
+],
+
+/* ===== AVIS 5 ===== */
+
+[
+
+{
+category:"🧠 FORSKNING",
+title:"Instituttet undersøker psykologisk forsvar",
+content:"Flere analyser viser at mennesker ofte blir høylytte rett før de taper argumenter."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Tre ansatte observert i stillhet",
+content:"Instituttet mener dette kan skyldes kommentarfelt."
+},
+
+{
+category:"🏛 INTERN GOSSIP",
+title:"Praktikanten vurderer ny karriere",
+content:"Vedkommende beskriver analyseavdelingen som “emosjonelt krevende”."
+},
+
+{
+category:"🧠 FORSKNING",
+title:"Ny studie om mennesker og kjøleskap",
+content:"Instituttet undersøker hvorfor mennesker åpner kjøleskapet flere ganger uten ny informasjon."
+},
+
+{
+category:"⚠ BREAKING NEWS",
+title:"Intern observasjon lekket",
+content:"Dokumentet omtaler brukere med “kritisk lav refleksjonskapasitet”."
+}
+
+]
+
+];
+
+const todaysNews =
+newspaperSets[
+today % newspaperSets.length
+];
+
+/* ===== ÅPNE AVIS ===== */
+
+function openInstituteNews(){
+
+const existing =
+document.getElementById("newsOverlay");
+
+if(existing){
+existing.remove();
+}
+
+const overlay =
+document.createElement("div");
+
+overlay.id = "newsOverlay";
+
+overlay.style = `
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+180deg,
+#a8d5c2,
+#9fc4d6,
+#b8b6e8
+);
+overflow:auto;
+z-index:999999;
+padding:30px 20px;
+`;
+
+overlay.innerHTML = `
+
+<div style="
+max-width:850px;
+margin:auto;
+font-family:Poppins,sans-serif;
+color:#1f2937;
+">
+
+<div style="
+text-align:center;
+margin-bottom:28px;
+">
+
+<div style="
+font-size:3rem;
+animation:floatNews 3s ease-in-out infinite;
+">
+📰✨
+</div>
+
+<h1 style="
+font-family:Cormorant Garamond,serif;
+font-size:3.5rem;
+margin-top:12px;
+color:#1e3a4c;
+">
+Instituttavisen
+</h1>
+
+<div style="
+opacity:0.75;
+margin-top:8px;
+font-size:1rem;
+">
+Dagens interne nyhetsrapport
+</div>
+
+</div>
+
+<div style="
+background:rgba(255,255,255,0.35);
+padding:14px 18px;
+border-radius:18px;
+margin-bottom:30px;
+font-weight:600;
+overflow:hidden;
+white-space:nowrap;
+">
+
+<div style="
+display:inline-block;
+animation:tickerMove 18s linear infinite;
+">
+
+⚠ BREAKING: Praktikanten vurderer oppsigelse ✨
+⚠ Instituttet observerer økning i dårlige argumenter ✨
+⚠ Olaini nekter videre kommentar ✨
+
+</div>
+
+</div>
+
+<div id="newsFeed"></div>
+
+<button onclick="closeInstituteNews()" style="
+width:100%;
+margin-top:30px;
+padding:18px;
+border:none;
+border-radius:22px;
+background:rgba(30,58,76,0.9);
+color:white;
+font-size:1rem;
+cursor:pointer;
+">
+Lukk avis
+</button>
+
+</div>
+
+<style>
+
+@keyframes tickerMove{
+
+0%{
+transform:translateX(100%);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+@keyframes floatNews{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-6px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.newsCard{
+
+background:rgba(255,255,255,0.35);
+
+backdrop-filter:blur(10px);
+
+padding:24px;
+
+border-radius:28px;
+
+margin-bottom:22px;
+
+box-shadow:
+0 0 22px rgba(0,0,0,0.08);
+
+border:1px solid rgba(255,255,255,0.18);
+
+animation:fadeNews 0.6s ease;
+
+}
+
+@keyframes fadeNews{
+
+from{
+opacity:0;
+transform:translateY(10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0px);
+}
+
+}
+
+.newsCategory{
+
+font-size:0.88rem;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+opacity:0.75;
+
+margin-bottom:10px;
+
+}
+
+.newsTitle{
+
+font-size:1.45rem;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+color:#183b4d;
+
+line-height:1.3;
+
+}
+
+.newsContent{
+
+line-height:1.7;
+
+font-size:1rem;
+
+}
+
+</style>
+
+`;
+
+document.body.appendChild(overlay);
+
+const feed =
+document.getElementById("newsFeed");
+
+todaysNews.forEach(article => {
+
+const card =
+document.createElement("div");
+
+card.className = "newsCard";
+
+card.innerHTML = `
+
+<div class="newsCategory">
+${article.category}
+</div>
+
+<div class="newsTitle">
+${article.title}
+</div>
+
+<div class="newsContent">
+${article.content}
+</div>
+
+`;
+
+feed.appendChild(card);
+
+});
+
+}
+
+/* ===== LUKK AVIS ===== */
+
+function closeInstituteNews(){
+
+const overlay =
+document.getElementById("newsOverlay");
+
+if(overlay){
+
+overlay.remove();
+
+}
+
+}
 </script>
 
 </body>
