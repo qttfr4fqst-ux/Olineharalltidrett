@@ -1632,6 +1632,326 @@ section.style.display = "none";
 }
 
 }
+  /* =========================
+NEW POPUP SYSTEM
+========================= */
+
+let lastSmallPopup = "";
+
+/* SMALL POPUPS */
+
+const smallMainPopups = [
+
+"Kaffemaskinen er tom.",
+"Instituttet vurderer å legge ned.",
+"Praktikanten leser argumentet ditt.",
+"Instituttet prøver å forstå hva du mente.",
+"Systemet vurderte å gi opp.",
+"Instituttet sukker tungt.",
+"Analyse forsinket grunnet dårlig stemning.",
+"⚠ Praktikanten er følelsesmessig påvirket.",
+"Systemet trenger en pause.",
+"Instituttet er skuffet.",
+"Olaini observerer situasjonen.",
+"Høyere instans er varslet.",
+"Argumentet sendes til intern evaluering.",
+"⚠ Kritisk lav refleksjonskapasitet registrert."
+
+];
+
+const smallArchivePopups = [
+
+"Instituttet følger med.",
+"Klassifisert materiale vises.",
+"Arkivet ble åpnet.",
+"Olaini har lest dokumentet.",
+"Intern observasjon lagret.",
+"⚠ Autorisert materiale åpnet.",
+"Saksmappe åpnet.",
+"⚠ Videre distribusjon frarådes.",
+"Internt dokument lastet inn.",
+"Olaini vurderer innholdet.",
+"⚠ Dokument under observasjon."
+
+];
+
+/* ACHIEVEMENTS */
+
+const achievements = [
+
+"🏆 Achievement låst opp:<br>Argumenterte mot Oline",
+
+"🏆 Ny medalje:<br>Overkonfident",
+
+"🏆 Prestasjon:<br>Sendte grunnløs klage",
+
+"🏆 Achievement låst opp:<br>Ignorerte logikk",
+
+"🏆 Prestasjon:<br>Høy selvtillit, lav dokumentasjon"
+
+];
+
+/* SMALL TOP POPUP */
+
+function createSmallPopup(message){
+
+const popup = document.createElement("div");
+
+popup.innerHTML = message;
+
+popup.style = `
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(20,20,30,0.88);
+backdrop-filter:blur(10px);
+padding:10px 18px;
+border-radius:999px;
+color:white;
+font-family:Poppins,sans-serif;
+font-size:0.88rem;
+z-index:999999;
+opacity:0;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 18px rgba(0,0,0,0.25);
+`;
+
+document.body.appendChild(popup);
+
+setTimeout(()=>{
+popup.style.opacity = "1";
+},50);
+
+setTimeout(()=>{
+
+popup.style.opacity = "0";
+
+setTimeout(()=>{
+popup.remove();
+},400);
+
+},5000);
+
+}
+
+/* ACHIEVEMENT POPUP */
+
+function createAchievementPopup(message){
+
+const popup = document.createElement("div");
+
+popup.innerHTML = `
+
+<div style="font-size:3rem; margin-bottom:10px;">
+✨🏆✨
+</div>
+
+<div style="font-size:1.15rem; line-height:1.6;">
+${message}
+</div>
+
+<button onclick="this.parentElement.parentElement.remove()" style="
+margin-top:22px;
+padding:12px 18px;
+border:none;
+border-radius:14px;
+background:white;
+color:black;
+cursor:pointer;
+font-weight:600;
+">
+Lukk
+</button>
+
+`;
+
+popup.style = `
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.9);
+background:
+linear-gradient(
+135deg,
+rgba(255,220,120,0.96),
+rgba(255,170,220,0.96)
+);
+padding:34px;
+border-radius:30px;
+text-align:center;
+font-family:Poppins,sans-serif;
+color:#222;
+z-index:999999;
+max-width:420px;
+width:90%;
+box-shadow:
+0 0 45px rgba(255,255,255,0.45),
+0 0 80px rgba(255,220,120,0.25);
+opacity:0;
+transition:0.4s;
+`;
+
+document.body.appendChild(popup);
+
+setTimeout(()=>{
+
+popup.style.opacity = "1";
+popup.style.transform = "translate(-50%,-50%) scale(1)";
+
+},50);
+
+setTimeout(()=>{
+
+if(document.body.contains(popup)){
+
+popup.style.opacity = "0";
+
+setTimeout(()=>{
+popup.remove();
+},400);
+
+}
+
+},10000);
+
+}
+
+/* RANDOM SMALL POPUP */
+
+function randomSmallPopup(){
+
+let currentSection = "main";
+
+if(
+document.getElementById("archive") &&
+!document.getElementById("archive").classList.contains("hidden")
+){
+currentSection = "archive";
+}
+
+if(
+document.getElementById("theories") &&
+!document.getElementById("theories").classList.contains("hidden")
+){
+currentSection = "archive";
+}
+
+let popupArray =
+currentSection === "archive"
+? smallArchivePopups
+: smallMainPopups;
+
+let randomMessage;
+
+do{
+
+randomMessage =
+popupArray[
+Math.floor(Math.random()*popupArray.length)
+];
+
+}while(randomMessage === lastSmallPopup);
+
+lastSmallPopup = randomMessage;
+
+createSmallPopup(randomMessage);
+
+}
+
+/* RANDOM ACHIEVEMENT */
+
+function randomAchievement(){
+
+const randomMessage =
+achievements[
+Math.floor(Math.random()*achievements.length)
+];
+
+createAchievementPopup(randomMessage);
+
+}
+
+/* RANDOM TIMER */
+
+setInterval(()=>{
+
+if(Math.random() < 0.55){
+
+randomSmallPopup();
+
+}
+
+},28000);
+
+/* ANALYSIS EVENTS */
+
+const oldQuickFunction = runQuick;
+
+runQuick = async function(){
+
+await oldQuickFunction();
+
+setTimeout(()=>{
+
+if(Math.random() < 0.35){
+
+randomAchievement();
+
+}else{
+
+randomSmallPopup();
+
+}
+
+},1200);
+
+};
+
+const oldOlineFunction = runOline;
+
+runOline = async function(){
+
+await oldOlineFunction();
+
+setTimeout(()=>{
+
+if(Math.random() < 0.4){
+
+randomAchievement();
+
+}else{
+
+randomSmallPopup();
+
+}
+
+},1200);
+
+};
+
+const oldFriendFunction = runFriend;
+
+runFriend = async function(){
+
+await oldFriendFunction();
+
+setTimeout(()=>{
+
+if(Math.random() < 0.4){
+
+randomAchievement();
+
+}else{
+
+randomSmallPopup();
+
+}
+
+},1200);
+
+};
 </script>
 
 </body>
