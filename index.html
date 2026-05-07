@@ -38,7 +38,6 @@ linear-gradient(
 );
 
 background-size:400% 400%;
-
 animation:bgFlow 18s ease infinite;
 
 }
@@ -82,8 +81,6 @@ animation:fadeIn 0.8s ease;
 
 background:rgba(255,255,255,0.07);
 
-border:1px solid rgba(255,255,255,0.10);
-
 }
 
 @keyframes fadeIn{
@@ -114,11 +111,8 @@ text-align:center;
 .instituttTitle{
 
 font-family:'Cormorant Garamond',serif;
-
 font-size:3rem;
-
 line-height:1.1;
-
 text-align:center;
 
 }
@@ -126,11 +120,8 @@ text-align:center;
 .subtitle{
 
 margin-top:24px;
-
 text-align:center;
-
 font-size:1.05rem;
-
 line-height:1.6;
 
 }
@@ -138,7 +129,6 @@ line-height:1.6;
 .introText{
 
 margin-top:36px;
-
 text-align:center;
 
 }
@@ -146,7 +136,6 @@ text-align:center;
 .introTitle{
 
 font-size:1.05rem;
-
 margin-bottom:14px;
 
 }
@@ -156,7 +145,6 @@ margin-bottom:14px;
 display:flex;
 flex-direction:column;
 gap:8px;
-
 font-size:1.15rem;
 
 }
@@ -164,11 +152,8 @@ font-size:1.15rem;
 .online{
 
 margin-top:34px;
-
 text-align:center;
-
 font-size:0.95rem;
-
 opacity:0.92;
 
 }
@@ -176,15 +161,10 @@ opacity:0.92;
 .modeTitle{
 
 margin-top:34px;
-
 margin-bottom:28px;
-
 text-align:center;
-
 font-size:1.4rem;
-
 font-weight:700;
-
 letter-spacing:4px;
 
 }
@@ -192,23 +172,14 @@ letter-spacing:4px;
 button{
 
 width:100%;
-
 border:none;
-
 padding:18px;
-
 margin-top:15px;
-
 border-radius:22px;
-
 cursor:pointer;
-
 font-size:1rem;
-
 font-weight:500;
-
 color:white;
-
 transition:0.3s;
 
 background:
@@ -224,9 +195,7 @@ box-shadow:
 }
 
 button:hover{
-
 transform:translateY(-2px);
-
 }
 
 .archiveButton{
@@ -241,20 +210,14 @@ rgba(100,100,130,0.55)
 }
 
 .secondaryButton{
-
-background:
-rgba(255,255,255,0.14);
-
+background:rgba(255,255,255,0.14);
 }
 
 .sectionTitle{
 
 font-family:'Cormorant Garamond',serif;
-
 font-size:2.2rem;
-
 margin-bottom:24px;
-
 text-align:center;
 
 }
@@ -264,39 +227,27 @@ textarea,
 select{
 
 width:100%;
-
 padding:16px;
-
 margin-top:12px;
-
 border:none;
-
 border-radius:18px;
-
 font-size:1rem;
-
 font-family:'Poppins',sans-serif;
 
 background:rgba(255,255,255,0.88);
-
 color:#444;
 
 }
 
 textarea{
-
 min-height:120px;
-
 resize:none;
-
 }
 
 .result{
 
 margin-top:28px;
-
 line-height:1.8;
-
 font-size:1.1rem;
 
 }
@@ -304,11 +255,8 @@ font-size:1.1rem;
 .loading{
 
 margin-top:20px;
-
 text-align:center;
-
 font-size:1rem;
-
 min-height:28px;
 
 }
@@ -316,15 +264,10 @@ min-height:28px;
 .progress{
 
 width:100%;
-
 height:12px;
-
 border-radius:30px;
-
 overflow:hidden;
-
 background:rgba(255,255,255,0.16);
-
 margin-top:18px;
 
 }
@@ -333,9 +276,7 @@ margin-top:18px;
 
 height:100%;
 width:0%;
-
 background:white;
-
 transition:1s;
 
 }
@@ -347,13 +288,9 @@ display:none;
 .sparkle{
 
 position:fixed;
-
 font-size:18px;
-
 pointer-events:none;
-
 opacity:0.7;
-
 animation:sparkleFloat linear infinite;
 
 }
@@ -373,13 +310,9 @@ transform:translateY(-10vh);
 .logEntry{
 
 margin-top:18px;
-
 padding:18px;
-
 border-radius:18px;
-
 background:rgba(255,255,255,0.06);
-
 line-height:1.7;
 
 }
@@ -387,9 +320,7 @@ line-height:1.7;
 table{
 
 width:100%;
-
 border-collapse:collapse;
-
 margin-top:20px;
 
 }
@@ -398,9 +329,7 @@ th,
 td{
 
 padding:14px;
-
 text-align:center;
-
 border-bottom:1px solid rgba(255,255,255,0.10);
 
 }
@@ -408,11 +337,8 @@ border-bottom:1px solid rgba(255,255,255,0.10);
 .footer{
 
 margin-top:40px;
-
 text-align:center;
-
 font-size:0.85rem;
-
 opacity:0.72;
 
 }
@@ -429,6 +355,8 @@ opacity:0.72;
 <div class="sparkle" style="left:72%; animation-duration:17s;">✨</div>
 
 <div class="container">
+
+<!-- HOME -->
 
 <div class="card" id="home">
 
@@ -500,6 +428,145 @@ Dessverre.
 
 </div>
 
+<!-- QUICK -->
+
+<div class="card hidden" id="quick">
+
+<div class="sectionTitle">
+Hurtiganalyse
+</div>
+
+<button onclick="runQuick()">
+Start analyse
+</button>
+
+<div class="loading" id="quickLoading"></div>
+
+<div class="progress">
+<div class="bar" id="quickBar"></div>
+</div>
+
+<div class="result" id="quickResult"></div>
+
+<button class="hidden" id="quickShare" onclick="copyResult('quickResult')">
+Del resultat
+</button>
+
+<button class="secondaryButton hidden" id="quickHome" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
+<!-- OLINE -->
+
+<div class="card hidden" id="oline">
+
+<div class="sectionTitle">
+⚖️ Meg mot Oline
+</div>
+
+<input id="olineName" placeholder="Hva heter du?">
+
+<textarea placeholder="Skriv argumentet ditt..."></textarea>
+
+<textarea placeholder="Hva mener Oline?"></textarea>
+
+<button onclick="runOline()">
+Start analyse
+</button>
+
+<div class="loading" id="olineLoading"></div>
+
+<div class="progress">
+<div class="bar" id="olineBar"></div>
+</div>
+
+<div class="result" id="olineResult"></div>
+
+<button class="hidden" id="olineShare" onclick="copyResult('olineResult')">
+Del resultat
+</button>
+
+<button class="secondaryButton hidden" id="olineHome" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
+<!-- FRIEND -->
+
+<div class="card hidden" id="friend">
+
+<div class="sectionTitle">
+👥 Meg mot en venn
+</div>
+
+<input id="friendTop" placeholder="Ditt navn">
+
+<textarea placeholder="Ditt argument..."></textarea>
+
+<input id="friendBottom" placeholder="Vennens navn">
+
+<textarea placeholder="Vennens argument..."></textarea>
+
+<button onclick="runFriend()">
+Start analyse
+</button>
+
+<div class="loading" id="friendLoading"></div>
+
+<div class="progress">
+<div class="bar" id="friendBar"></div>
+</div>
+
+<div class="result" id="friendResult"></div>
+
+<button class="hidden" id="friendShare" onclick="copyResult('friendResult')">
+Del resultat
+</button>
+
+<button class="secondaryButton hidden" id="friendHome" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
+<!-- SERVICE -->
+
+<div class="card hidden" id="service">
+
+<div class="sectionTitle">
+🛎️ Kundeservice
+</div>
+
+<select>
+
+<option>Jeg mener analysen er feil</option>
+<option>Jeg ønsker ny vurdering</option>
+<option>Rapporter alvorlig feil</option>
+<option>Send inn egen klage</option>
+
+</select>
+
+<input placeholder="Navn">
+
+<textarea placeholder="Beskriv problemet..."></textarea>
+
+<button onclick="runComplaint()">
+Send klage
+</button>
+
+<div class="result" id="complaintResult"></div>
+
+<button class="secondaryButton hidden" id="serviceHome" onclick="goHome()">
+Tilbake til hjem
+</button>
+
+</div>
+
+<!-- ARCHIVE -->
+
 <div class="card archiveCard hidden" id="archive">
 
 <div class="sectionTitle">
@@ -532,333 +599,201 @@ Tilbake til hjem
 
 </div>
 
+<!-- THEORIES -->
+
 <div class="card archiveCard hidden" id="theories">
 
 <div class="sectionTitle">
 📚 Oline’s teorier
 </div>
 
-<!-- HER KOMMER ALLE TEORIENE -->
+<script>
+
+const theories = [
+
+["Håndholding","Instituttet har observert at kvinner ofte holder hånden bak mannens hånd når kjærestepar holder hender.","Under observasjon","Kontroversiell","Mistenkelig sannsynlig"],
+
+["Historisk usikkerhet hos menn","Instituttet opererer med en teori om at kvinner historisk kan ha vært mer ressurssterke og analytiske enn menn.","Aktiv debatt internt","Følsom","Urovekkende troverdig"],
+
+["Butikk-hastighet","Mennesker går raskere i butikker når de later som de vet hvor de skal.","Ferdig observert","Vanlig","Logisk rett"],
+
+["Hehe-fenomenet","Personer som skriver “hehe” føler ofte ansvar for stemningen.","Ingen konklusjon","Overraskende realistisk","Vanskelig å motbevise"],
+
+["Kjøleskap-observasjonen","Mennesker åpner kjøleskapet flere ganger selv om ingenting nytt er der.","Ferdig observert","Logisk","Mistenkelig sannsynlig"],
+
+["Ladeprosent","Personer med under 15% batteri får dårligere problemløsningsevne.","Under observasjon","Vanlig","Instituttet følger utviklingen"],
+
+["Dyne-fot","Mennesker føler seg tryggere når minst én fot er under dynen.","Oline nekter å utdype","Kontroversiell","Urovekkende troverdig"],
+
+["Jeg kommer snart","“Jeg kommer snart” beskriver sjelden faktisk tid.","Ferdig observert","Vanlig","Logisk rett"],
+
+["TV-serie-paradokset","Mennesker bruker lengre tid på å velge serie enn å faktisk se serien.","Under observasjon","Vanlig","Mistenkelig sannsynlig"],
+
+["Hvile litt","“Jeg skal bare hvile litt” ender ofte i søvn.","Ferdig observert","Logisk","Vanskelig å motbevise"]
+
+];
+
+document.write(theories.map((t,i)=>`
 
 <div class="logEntry">
 
-<b>ARKIV: T-01</b><br>
-<b>TEORI 01:</b> Håndholding
+<b>ARKIV: T-0${i+1}</b><br>
+<b>TEORI ${i+1}:</b> ${t[0]}
 
-<button onclick="toggleTheory('theory1')">
+<button onclick="toggleTheory('theory${i}')">
 Åpne teori
 </button>
 
-<div id="theory1" class="hidden" style="margin-top:18px;">
+<div id="theory${i}" class="hidden" style="margin-top:18px;">
 
-Instituttet har observert at kvinner ofte holder hånden bak mannens hånd når kjærestepar holder hender.
-
-Oline’s teori er at dette kan være biologisk knyttet til beskyttelsesinstinkter hos menn.
+${t[1]}
 
 <br><br>
 
 <b>STATUS:</b><br>
-Under observasjon
+${t[2]}
 
 <br><br>
 
 <b>KLASSIFISERING:</b><br>
-Kontroversiell
+${t[3]}
 
 <br><br>
 
 <b>INSTITUTTSTATUS:</b><br>
-Mistenkelig sannsynlig
+${t[4]}
 
 </div>
 
+</div>
+
+`).join(""));
+
+</script>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<!-- HALL -->
+
+<div class="card archiveCard hidden" id="hall">
+
+<div class="sectionTitle">
+🏆 Hall of Shame
+</div>
+
+<table>
+
+<tr>
+<th>Navn</th>
+<th>Feil%</th>
+<th>Klager</th>
+</tr>
+
+<tr>
+<td>Kevin</td>
+<td>116.8%</td>
+<td>18</td>
+</tr>
+
+<tr>
+<td>Markus</td>
+<td>104.3%</td>
+<td>7</td>
+</tr>
+
+<tr>
+<td>Emil</td>
+<td>98.1%</td>
+<td>12</td>
+</tr>
+
+</table>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<!-- HISTORY -->
+
+<div class="card archiveCard hidden" id="history">
+
+<div class="sectionTitle">
+📜 Historiske analyser
+</div>
+
+<div class="logEntry">
+2009: Kevin mente han hadde parkert riktig. Instituttet var uenig.
+</div>
+
+<div class="logEntry">
+2017: En person argumenterte mot Oline. Instituttet ble midlertidig stengt.
+</div>
+
+<div class="logEntry">
+2021: Kundeservice mottok 47 klager på én dag. Ingen ble godkjent.
+</div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<!-- HIGHER -->
+
+<div class="card archiveCard hidden" id="higher">
+
+<div class="sectionTitle">
+⚖️ Høyere instans
 </div>
 
 <div class="logEntry">
 
-<b>ARKIV: T-02</b><br>
-<b>TEORI 02:</b> Historisk usikkerhet hos menn
-
-<button onclick="toggleTheory('theory2')">
-Åpne teori
-</button>
-
-<div id="theory2" class="hidden" style="margin-top:18px;">
-
-Instituttet opererer med en teori om at kvinner historisk kan ha vært mer ressurssterke og analytiske enn menn.
+Aktive saker hos Olaini:
 
 <br><br>
 
-<b>STATUS:</b><br>
-Aktiv debatt internt
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Følsom
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Urovekkende troverdig
+Sak #442 - avvist<br>
+Sak #918 - under vurdering<br>
+Sak #1102 - fortsatt feil
 
 </div>
 
+<button onclick="runHigher()">
+Send saken til Olaini
+</button>
+
+<div class="result" id="higherResult"></div>
+
+<button class="secondaryButton" onclick="showSection('archive')">
+Tilbake
+</button>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="card archiveCard hidden" id="about">
+
+<div class="sectionTitle">
+🦋 Om oss
 </div>
 
 <div class="logEntry">
 
-<b>ARKIV: T-03</b><br>
-<b>TEORI 03:</b> Butikk-hastighet
+Olines Analyseinstitutt ble laget hovedsakelig for gøy.
 
-<button onclick="toggleTheory('theory3')">
-Åpne teori
-</button>
-
-<div id="theory3" class="hidden" style="margin-top:18px;">
-
-Mennesker går raskere i butikker når de later som de vet hvor de skal.
+Det handler om å være kildekritisk og hvem er vel bedre til å vite om Oline har rett enn Oline selv.
 
 <br><br>
 
-<b>STATUS:</b><br>
-Ferdig observert
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Vanlig
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Logisk rett
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-04</b><br>
-<b>TEORI 04:</b> “Hehe”-fenomenet
-
-<button onclick="toggleTheory('theory4')">
-Åpne teori
-</button>
-
-<div id="theory4" class="hidden" style="margin-top:18px;">
-
-Personer som skriver “hehe” føler ofte ansvar for stemningen.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Ingen konklusjon
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Overraskende realistisk
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Vanskelig å motbevise
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-05</b><br>
-<b>TEORI 05:</b> Kjøleskap-observasjonen
-
-<button onclick="toggleTheory('theory5')">
-Åpne teori
-</button>
-
-<div id="theory5" class="hidden" style="margin-top:18px;">
-
-Mennesker åpner kjøleskapet flere ganger selv om ingenting nytt er der.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Ferdig observert
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Logisk
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Mistenkelig sannsynlig
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-06</b><br>
-<b>TEORI 06:</b> Ladeprosent
-
-<button onclick="toggleTheory('theory6')">
-Åpne teori
-</button>
-
-<div id="theory6" class="hidden" style="margin-top:18px;">
-
-Personer med under 15% batteri får dårligere problemløsningsevne.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Under observasjon
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Vanlig
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Instituttet følger utviklingen
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-07</b><br>
-<b>TEORI 07:</b> Dyne-fot
-
-<button onclick="toggleTheory('theory7')">
-Åpne teori
-</button>
-
-<div id="theory7" class="hidden" style="margin-top:18px;">
-
-Mennesker føler seg tryggere når minst én fot er under dynen.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Oline nekter å utdype
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Kontroversiell
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Urovekkende troverdig
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-08</b><br>
-<b>TEORI 08:</b> “Jeg kommer snart”
-
-<button onclick="toggleTheory('theory8')">
-Åpne teori
-</button>
-
-<div id="theory8" class="hidden" style="margin-top:18px;">
-
-“Jeg kommer snart” beskriver sjelden faktisk tid.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Ferdig observert
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Vanlig
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Logisk rett
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-09</b><br>
-<b>TEORI 09:</b> TV-serie-paradokset
-
-<button onclick="toggleTheory('theory9')">
-Åpne teori
-</button>
-
-<div id="theory9" class="hidden" style="margin-top:18px;">
-
-Mennesker bruker lengre tid på å velge serie enn å faktisk se serien.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Under observasjon
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Vanlig
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Mistenkelig sannsynlig
-
-</div>
-
-</div>
-
-<div class="logEntry">
-
-<b>ARKIV: T-10</b><br>
-<b>TEORI 10:</b> “Hvile litt”
-
-<button onclick="toggleTheory('theory10')">
-Åpne teori
-</button>
-
-<div id="theory10" class="hidden" style="margin-top:18px;">
-
-“Jeg skal bare hvile litt” ender ofte i søvn.
-
-<br><br>
-
-<b>STATUS:</b><br>
-Ferdig observert
-
-<br><br>
-
-<b>KLASSIFISERING:</b><br>
-Logisk
-
-<br><br>
-
-<b>INSTITUTTSTATUS:</b><br>
-Vanskelig å motbevise
-
-</div>
+Jeg (Oline) brenner for at alle skal ha en sjanse til å ha selvinnsikt og forstå at man ikke alltid kan ha rett i diskusjoner.
 
 </div>
 
@@ -888,6 +823,11 @@ hideAll();
 
 document.getElementById(id).classList.remove('hidden');
 
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
 }
 
 function goHome(){
@@ -901,6 +841,213 @@ document.getElementById('home').classList.remove('hidden');
 function toggleTheory(id){
 
 document.getElementById(id).classList.toggle("hidden");
+
+}
+
+function randomPercent(){
+
+return (Math.random()*40+80).toFixed(1);
+
+}
+
+const loadingTexts=[
+
+"Analyserer argument...",
+"Sammenligner med virkeligheten...",
+"Kjører logisk evaluering...",
+"Sjekker om du tar feil...",
+"Konsulterer med Oline...",
+"Analyse fullført."
+
+];
+
+async function fakeLoading(loadId,barId){
+
+const load=document.getElementById(loadId);
+const bar=document.getElementById(barId);
+
+bar.style.width="0%";
+
+for(let i=0;i<loadingTexts.length;i++){
+
+load.innerHTML=loadingTexts[i];
+
+bar.style.width=((i+1)/loadingTexts.length*100)+"%";
+
+await new Promise(r=>setTimeout(r,800));
+
+}
+
+}
+
+async function runQuick(){
+
+document.getElementById("quickResult").innerHTML="";
+
+await fakeLoading("quickLoading","quickBar");
+
+let rare=Math.random()<0.08;
+
+if(rare){
+
+document.getElementById("quickResult").innerHTML=`
+
+⚠ ERROR ⚠<br><br>
+
+Kritisk lav IQ oppdaget.<br><br>
+
+Instituttet anbefaler refleksjon.
+
+`;
+
+}else{
+
+document.getElementById("quickResult").innerHTML=`
+
+✔ Analyse fullført<br><br>
+
+Du tok feil med ${randomPercent()}% sikkerhet.<br><br>
+
+Oline hadde rett.
+
+`;
+
+}
+
+document.getElementById("quickShare").classList.remove("hidden");
+document.getElementById("quickHome").classList.remove("hidden");
+
+}
+
+async function runOline(){
+
+document.getElementById("olineResult").innerHTML="";
+
+await fakeLoading("olineLoading","olineBar");
+
+let name=document.getElementById("olineName").value || "Du";
+
+document.getElementById("olineResult").innerHTML=`
+
+✔ Analyse fullført<br><br>
+
+${name} tok feil med ${randomPercent()}% sikkerhet.<br><br>
+
+Oline hadde rett.
+
+`;
+
+document.getElementById("olineShare").classList.remove("hidden");
+document.getElementById("olineHome").classList.remove("hidden");
+
+}
+
+async function runFriend(){
+
+document.getElementById("friendResult").innerHTML="";
+
+await fakeLoading("friendLoading","friendBar");
+
+let top=document.getElementById("friendTop").value || "Øverste deltaker";
+let bottom=document.getElementById("friendBottom").value || "Nederste deltaker";
+
+let both=Math.random()<0.12;
+
+if(both){
+
+document.getElementById("friendResult").innerHTML=`
+
+✔ Analyse fullført<br><br>
+
+Etter nøye analyse har Oline konkludert med at både ${top} og ${bottom} tok feil.
+
+`;
+
+}else{
+
+document.getElementById("friendResult").innerHTML=`
+
+✔ Analyse fullført<br><br>
+
+${bottom} tok feil med ${randomPercent()}% sikkerhet.
+
+`;
+
+}
+
+document.getElementById("friendShare").classList.remove("hidden");
+document.getElementById("friendHome").classList.remove("hidden");
+
+}
+
+function runComplaint(){
+
+const replies=[
+
+"Klagen ble avvist.",
+
+"Kundeservice konsulterte med Oline, hun avslo klagen.",
+
+"Instituttet opprettholder analysen.",
+
+"Systemfeil ikke funnet."
+
+];
+
+document.getElementById("complaintResult").innerHTML=
+replies[Math.floor(Math.random()*replies.length)];
+
+document.getElementById("serviceHome").classList.remove("hidden");
+
+}
+
+async function runHigher(){
+
+const result=document.getElementById("higherResult");
+
+result.innerHTML="Saken videresendes til Olaini...";
+
+await new Promise(r=>setTimeout(r,3000));
+
+result.innerHTML=`
+
+Olaini har gjennomgått saken.<br><br>
+
+Den opprinnelige analysen opprettholdes.
+
+`;
+
+}
+
+async function copyResult(id){
+
+let text=document.getElementById(id).innerText;
+
+let shareText = `${text}
+
+Vurdert av Oline’s Analyseinstitutt 🦋
+
+https://olineharalltidrett.no`;
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Oline’s Analyseinstitutt",
+
+text:shareText,
+
+url:"https://olineharalltidrett.no"
+
+});
+
+}else{
+
+navigator.clipboard.writeText(shareText);
+
+alert("Analyse kopiert.");
+
+}
 
 }
 
