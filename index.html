@@ -1164,7 +1164,474 @@ alert("Analyse kopiert.");
 }
 
 }
+/* =========================
+OLAINI SYSTEM PATCH
+========================= */
 
+/* DOBBELTKLIKK PÅ SOMMERFUGL */
+
+const butterfly = document.querySelector('.mainTitle div:last-child');
+
+let butterflyClicks = 0;
+
+butterfly.addEventListener("click", () => {
+
+butterflyClicks++;
+
+setTimeout(() => {
+butterflyClicks = 0;
+}, 900);
+
+if(butterflyClicks >= 2){
+
+openOlainiLogin();
+
+butterflyClicks = 0;
+
+}
+
+});
+
+/* LOGIN SCREEN */
+
+function openOlainiLogin(){
+
+const existing = document.getElementById("olainiOverlay");
+
+if(existing){
+existing.remove();
+}
+
+const overlay = document.createElement("div");
+
+overlay.id = "olainiOverlay";
+
+overlay.style = `
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(10,10,20,0.96);
+z-index:99999;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+`;
+
+overlay.innerHTML = `
+
+<div style="
+background:#151821;
+border:1px solid rgba(255,255,255,0.08);
+padding:35px;
+border-radius:24px;
+max-width:420px;
+width:100%;
+color:white;
+font-family:Poppins,sans-serif;
+">
+
+<h2 style="
+font-family:Cormorant Garamond,serif;
+font-size:2rem;
+margin-bottom:20px;
+text-align:center;
+">
+⚠ AUTORISERT TILGANG ⚠
+</h2>
+
+<div style="opacity:0.7; margin-bottom:18px; text-align:center;">
+Kun for autorisert personell
+</div>
+
+<input
+id="olainiUser"
+placeholder="Brukernavn"
+style="
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border:none;
+border-radius:14px;
+"
+>
+
+<input
+id="olainiPass"
+type="password"
+placeholder="Passord"
+style="
+width:100%;
+padding:14px;
+margin-bottom:18px;
+border:none;
+border-radius:14px;
+"
+>
+
+<button onclick="checkOlainiLogin()" style="
+width:100%;
+padding:14px;
+border:none;
+border-radius:16px;
+background:linear-gradient(45deg,#444,#222);
+color:white;
+cursor:pointer;
+font-weight:600;
+">
+Logg inn
+</button>
+
+<button onclick="closeOlaini()" style="
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:16px;
+background:rgba(255,255,255,0.08);
+color:white;
+cursor:pointer;
+">
+Lukk
+</button>
+
+<div id="olainiError" style="
+margin-top:14px;
+text-align:center;
+opacity:0.8;
+font-size:0.95rem;
+"></div>
+
+</div>
+`;
+
+document.body.appendChild(overlay);
+
+}
+
+/* LUKK LOGIN */
+
+function closeOlaini(){
+
+const overlay = document.getElementById("olainiOverlay");
+
+if(overlay){
+overlay.remove();
+}
+
+}
+
+/* LOGIN CHECK */
+
+function checkOlainiLogin(){
+
+const user =
+document.getElementById("olainiUser").value;
+
+const pass =
+document.getElementById("olainiPass").value;
+
+if(
+user === "Oline" &&
+pass === "Olineharalltidrett"
+){
+
+openOlainiPanel();
+
+}else{
+
+document.getElementById("olainiError").innerHTML = `
+⚠ Tilgang nektet.<br>
+Hendelsen er loggført.
+`;
+
+}
+
+}
+
+/* OLAINI PANEL */
+
+function openOlainiPanel(){
+
+const overlay = document.getElementById("olainiOverlay");
+
+overlay.innerHTML = `
+
+<div style="
+width:100%;
+max-width:900px;
+height:90vh;
+overflow:auto;
+background:#11141c;
+border-radius:28px;
+padding:30px;
+font-family:Poppins,sans-serif;
+color:#d6dae3;
+border:1px solid rgba(255,255,255,0.08);
+">
+
+<h1 style="
+font-family:Cormorant Garamond,serif;
+font-size:3rem;
+margin-bottom:10px;
+color:white;
+">
+OLAINI
+</h1>
+
+<div style="
+opacity:0.65;
+margin-bottom:35px;
+">
+Høyeste rett i Oline’s Analyseinstitutt
+</div>
+
+<button onclick="toggleOlainiSection('documentsSection')" class="archiveButton">
+📁 Klassifiserte dokumenter
+</button>
+
+<div id="documentsSection" style="display:none;">
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('olineMappe')">
+📂 Oline’s personalmappe
+</button>
+
+<div id="olineMappe" style="display:none; margin-top:15px;">
+
+<b>Navn:</b> Oline Lilla<br>
+<b>Fødselsdato:</b> 04.12.2004<br><br>
+
+<b>Stilling:</b><br>
+Grunnlegger og eier av instituttet. Advokat.<br><br>
+
+<b>Arbeidsoppgaver:</b><br>
+Svare på klager, vurdere og analysere argumenter.<br><br>
+
+Olaini får direkte varsel om argumenter og diskusjoner.
+Hun har siste ordet når diskusjonen har nådd siden.
+
+Hun dokumenterer observasjoner og hendelser som blir sendt inn.
+
+</div>
+
+</div>
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('olainiMappe')">
+📂 Olaini’s personalmappe
+</button>
+
+<div id="olainiMappe" style="display:none; margin-top:15px;">
+
+<b>Navn:</b> Olaini Rosa<br>
+<b>Fødselsdato:</b> 12.03.2004<br><br>
+
+<b>Stilling:</b><br>
+Dommer i høyeste rett i Oline’s Analyseinstitutt.<br><br>
+
+<b>Arbeidsoppgaver:</b><br>
+Observere besøk på siden, vurdere klager,
+dokumentere situasjoner, klager og observasjoner,
+og føre statistikk.<br><br>
+
+Olaini observerer ut fra argumenter og besøk
+hvordan IQ-nivået ligger an og hvor kritisk det er
+for en person å plukke opp en bok.
+
+</div>
+
+</div>
+
+</div>
+
+<button onclick="toggleOlainiSection('casesSection')" class="archiveButton">
+📚 Saksmapper
+</button>
+
+<div id="casesSection" style="display:none;">
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('case73')">
+Sak #73
+</button>
+
+<div id="case73" style="display:none; margin-top:15px;">
+
+<b>Status:</b> Lukket<br>
+<b>Klassifisert som:</b> Klage<br><br>
+
+Sendt inn klage kl. 14.03 etter analyse om Sarah burde slå opp etter utroskap.
+
+Oline konkluderte med at forholdet burde avsluttes.
+
+Sarah reagerte negativt og sendte inn klage.
+
+Instituttet opprettholder svar 1.
+
+</div>
+
+</div>
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('case87')">
+Sak #87
+</button>
+
+<div id="case87" style="display:none; margin-top:15px;">
+
+<b>Status:</b> Observasjon<br>
+<b>Klassifisert som:</b> Uønsket atferd<br><br>
+
+Kl. 19.43 registrerte instituttet en bruker
+som tidligere har sendt inn tre klager.
+
+Systemfeil ble aktivert for å redusere videre aktivitet.
+
+Tiltaket fungerte.
+
+Instituttet følger situasjonen videre.
+
+</div>
+
+</div>
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('case29')">
+Sak #29
+</button>
+
+<div id="case29" style="display:none; margin-top:15px;">
+
+<b>Status:</b> Observasjon<br>
+<b>Klassifisert som:</b> Psykisk manipulering<br><br>
+
+Instituttet observerte gjentatte forsøk på å bruke analyser
+for å få viljen sin i hjemmet.
+
+Svar vil justeres fremover for å beskytte den andre parten.
+
+Saken overvåkes fortsatt.
+
+</div>
+
+</div>
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('case12')">
+Sak #12
+</button>
+
+<div id="case12" style="display:none; margin-top:15px;">
+
+<b>Status:</b> Lukket<br>
+<b>Klassifisert som:</b> Klage<br><br>
+
+Kl. 16.59 mottok instituttet klage på at siden virket for seriøs til å være humor.
+
+Instituttet vurderte tilbakemeldingen og innførte mer synlig humor.
+
+Brukeren ble anbefalt å være mer kildekritisk til innhold på internett.
+
+</div>
+
+</div>
+
+</div>
+
+<button onclick="toggleOlainiSection('observationSection')" class="archiveButton">
+👁 Observasjoner
+</button>
+
+<div id="observationSection" style="display:none;">
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('bmwObs')">
+BMW-sjåfører
+</button>
+
+<div id="bmwObs" style="display:none; margin-top:15px;">
+
+<b>Hypotese:</b><br>
+Blinklys-olje er tilbake i butikkhyllene.<br><br>
+
+<b>Teori:</b><br>
+Etter samtaler med flere BMW-eiere
+mistenker instituttet at økte bøter og bedre kjennskap til trafikkregler
+har påvirket bruken av blinklys.<br><br>
+
+<b>Konklusjon:</b><br>
+Menneskeheten kan være i tidlig utvikling.
+
+</div>
+
+</div>
+
+<div class="logEntry">
+
+<button onclick="toggleOlainiSection('psyObs')">
+Psykologer
+</button>
+
+<div id="psyObs" style="display:none; margin-top:15px;">
+
+<b>Hypotese:</b><br>
+Mennesker risikerer å bli redusert til diagnoser
+og stereotype beskrivelser.<br><br>
+
+<b>Teori:</b><br>
+Instituttet mistenker at tidspress,
+rutiner og begrenset kapasitet
+kan gjøre det vanskelig å se hele mennesket.<br><br>
+
+<b>Konklusjon:</b><br>
+Instituttet anbefaler videre observasjon
+av forholdet mellom analyse, tidspress og kaffepauser.
+
+</div>
+
+</div>
+
+</div>
+
+<button onclick="closeOlaini()" class="secondaryButton">
+Lukk system
+</button>
+
+</div>
+`;
+
+}
+
+/* TOGGLE */
+
+function toggleOlainiSection(id){
+
+const section = document.getElementById(id);
+
+if(
+section.style.display === "none" ||
+section.style.display === ""
+){
+
+section.style.display = "block";
+
+}else{
+
+section.style.display = "none";
+
+}
+
+}
 </script>
 
 </body>
