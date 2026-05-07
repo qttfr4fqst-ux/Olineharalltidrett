@@ -2611,6 +2611,115 @@ await oldPsychFriend();
 psychologicalAnalysis(combinedText);
 
 };
+  /* =========================
+REGELVERK PATCH
+LIM INN OVER </script>
+========================= */
+
+/* ===== LEGG TIL REGELVERK KNAPP ===== */
+
+setTimeout(()=>{
+
+const olainiButtons =
+document.querySelectorAll(".archiveButton");
+
+if(olainiButtons.length > 0){
+
+const rulesButton =
+document.createElement("button");
+
+rulesButton.className =
+"archiveButton";
+
+rulesButton.innerHTML =
+"📜 Regelverk";
+
+rulesButton.onclick = () => {
+
+toggleOlainiSection("rulesSection");
+
+};
+
+olainiButtons[
+olainiButtons.length - 1
+].parentNode.appendChild(rulesButton);
+
+/* ===== REGELVERK INNHOLD ===== */
+
+const rulesDiv =
+document.createElement("div");
+
+rulesDiv.id = "rulesSection";
+
+rulesDiv.style.display = "none";
+
+rulesDiv.innerHTML = `
+
+<div class="logEntry">
+
+<div style="
+line-height:1.9;
+font-size:0.98rem;
+">
+
+<b>REGEL 1:</b><br>
+Oline har som hovedregel rett.<br><br>
+
+<b>REGEL 2:</b><br>
+Gjennomføring av analyse betyr automatisk samtykke til instituttets konklusjon.<br><br>
+
+<b>REGEL 3:</b><br>
+Kundeservice eksisterer hovedsakelig for stemning.<br><br>
+
+<b>REGEL 4:</b><br>
+Ved uenighet kan saken sendes til Olaini.
+Alle avgjørelser derfra er endelige.<br><br>
+
+<b>REGEL 5:</b><br>
+Aggressiv bruk av capslock regnes som emosjonell svekkelse.<br><br>
+
+<b>REGEL 6:</b><br>
+Instituttet forbeholder seg retten til å le av argumenter.<br><br>
+
+<b>REGEL 7:</b><br>
+Ved innsending av argument samtykker brukeren til psykisk evaluering fra praktikanten.<br><br>
+
+<b>REGEL 8:</b><br>
+Grunnløse klager kan føre til redusert tro på menneskeheten hos ansatte.<br><br>
+
+<b>REGEL 9:</b><br>
+Systemfeil kan aktiveres ved kritisk lav refleksjonskapasitet.<br><br>
+
+<b>REGEL 10:</b><br>
+Instituttet observerer.<br><br>
+
+<b>REGEL 11:</b><br>
+Forsøk på å manipulere analyser kan føre til intern etterforskning.<br><br>
+
+<b>REGEL 12:</b><br>
+Praktikanten har lovpålagt kaffepause ved alvorlige argumenter.<br><br>
+
+<b>REGEL 13:</b><br>
+Instituttet fraskriver seg ansvar for emosjonell skade etter analyse.<br><br>
+
+<b>REGEL 14:</b><br>
+Olaini kan når som helst overstyre systemet uten forklaring.<br><br>
+
+<b>REGEL 15:</b><br>
+Ved ekstremt dårlig argumentasjon kan brukeren anbefales å lese en bok.
+
+</div>
+
+</div>
+`;
+
+olainiButtons[
+olainiButtons.length - 1
+].parentNode.appendChild(rulesDiv);
+
+}
+
+},1200);
 </script>
 
 </body>
