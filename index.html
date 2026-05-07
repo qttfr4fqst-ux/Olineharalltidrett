@@ -1,7 +1,8 @@
 <!--
-VERSION 7 - OLINE'S ANALYSEINSTITUTT
-Slett ALT gammelt og lim inn dette.
-Ja, dette begynner å ligne et ekte digitalt maktapparat.
+VERSION 7.5
+FULL ERSTATNING
+Slett ALT i GitHub-filen og lim inn dette.
+Ja, instituttet har nå utviklet et eget teoribyråkrati. Tragisk for samfunnet. Flott for nettsiden.
 -->
 
 <!DOCTYPE html>
@@ -119,27 +120,17 @@ justify-content:center;
 
 text-align:center;
 
-gap:0px;
-
-}
-
-.olineTitle{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2.8rem;
-
-letter-spacing:4px;
-
 }
 
 .instituttTitle{
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:2.2rem;
+font-size:3rem;
 
-margin-top:-8px;
+line-height:1.1;
+
+text-align:center;
 
 }
 
@@ -456,12 +447,12 @@ opacity:0.72;
 
 <h1 class="mainTitle">
 
-<div class="olineTitle">
-OLINE
+<div class="instituttTitle">
+Oline’s Analyseinstitutt
 </div>
 
-<div class="instituttTitle">
-🦋 Oline’s Analyseinstitutt
+<div style="font-size:2rem; margin-top:10px;">
+🦋
 </div>
 
 </h1>
@@ -637,11 +628,8 @@ Tilbake til hjem
 <select>
 
 <option>Jeg mener analysen er feil</option>
-
 <option>Jeg ønsker ny vurdering</option>
-
 <option>Rapporter alvorlig feil</option>
-
 <option>Send inn egen klage</option>
 
 </select>
@@ -709,283 +697,76 @@ Tilbake til hjem
 </div>
 
 <div class="logEntry">
-<b>TEORI 01:</b><br><br>
 
-Instituttet har observert at kvinner ofte holder hånden bak mannens hånd når kjærestepar holder hender.
+<b>ARKIV: T-01</b><br>
+<b>TEORI 01:</b> Håndholding
+
+<button onclick="toggleTheory('theory1')">
+Åpne teori
+</button>
+
+<div id="theory1" class="hidden" style="margin-top:18px; line-height:1.8;">
+
+Instituttet har over lengre tid observert at kvinner ofte holder hånden bak mannens hånd når kjærestepar holder hender.
 
 Oline’s teori er at dette kan være biologisk knyttet til beskyttelsesinstinkter hos menn.
 
 Ved å ha hånden fremst kan mannen raskere bevege seg foran partneren dersom underbevisste beskyttelsesinstinkter aktiveres.
 
 Instituttet innrømmer at teorien hovedsakelig er basert på observasjon, stemning og Oline.
+
+<br><br>
+
+<b>STATUS:</b><br>
+Under observasjon
+
+<br><br>
+
+<b>KLASSIFISERING:</b><br>
+Kontroversiell
+
+<br><br>
+
+<b>INSTITUTTSTATUS:</b><br>
+Mistenkelig sannsynlig
+
+</div>
+
 </div>
 
 <div class="logEntry">
-<b>TEORI 02:</b><br><br>
+
+<b>ARKIV: T-02</b><br>
+<b>TEORI 02:</b> Historisk usikkerhet hos menn
+
+<button onclick="toggleTheory('theory2')">
+Åpne teori
+</button>
+
+<div id="theory2" class="hidden" style="margin-top:18px; line-height:1.8;">
 
 Instituttet opererer med en teori om at kvinner historisk kan ha vært mer ressurssterke og analytiske enn menn.
 
 Instituttet mistenker at menn utviklet en kollektiv idé om at menn måtte fremstilles som smartere for å opprettholde sosial kontroll.
 
 Teorien er fortsatt under vurdering etter flere sinte reaksjoner fra menn.
-</div>
-
-<div class="logEntry">
-<b>TEORI 03:</b><br><br>
-
-Mennesker går betydelig raskere i butikker når de later som de vet hvor de skal.
-
-Fenomenet forsvinner umiddelbart når personen faktisk finner varen.
-</div>
-
-<div class="logEntry">
-<b>TEORI 04:</b><br><br>
-
-Personer som avslutter meldinger med “hehe” føler ofte ansvar for stemningen i samtalen.
-
-Instituttet omtaler dette som sosial støtdemping.
-</div>
-
-<div class="logEntry">
-<b>TEORI 05:</b><br><br>
-
-Mennesker åpner kjøleskapet flere ganger selv etter å ha bekreftet at det ikke finnes noe nytt der.
-
-Instituttet mistenker spontan håp-basert matmanifestasjon.
-</div>
-
-<div class="logEntry">
-<b>TEORI 06:</b><br><br>
-
-Personer med under 15% batteri utvikler dramatisk dårligere problemløsningsevne.
-
-Ved 5% batteri går mange over til ren overlevelsesmodus.
-</div>
-
-<div class="logEntry">
-<b>TEORI 07:</b><br><br>
-
-Mennesker føler seg tryggere når minst én fot er under dynen.
-
-Instituttet undersøker fortsatt mulig ankelfare.
-</div>
-
-<div class="logEntry">
-<b>TEORI 08:</b><br><br>
-
-“Jeg kommer snart” beskriver svært sjelden faktisk tid.
-
-Begrepet beskriver hovedsakelig håp og optimisme.
-</div>
-
-<div class="logEntry">
-<b>TEORI 09:</b><br><br>
-
-Mennesker bruker ofte lengre tid på å velge serie enn å faktisk se serien.
-</div>
-
-<div class="logEntry">
-<b>TEORI 10:</b><br><br>
-
-“Jeg skal bare hvile litt” resulterer svært ofte i søvn.
-
-Instituttet mener sofa juridisk sett fungerer som samtykke til bevisstløshet.
-</div>
-
-<button class="secondaryButton" onclick="showSection('archive')">
-Tilbake
-</button>
-
-</div>
-
-<!-- HALL -->
-
-<div class="card archiveCard hidden" id="hall">
-
-<div class="sectionTitle">
-🏆 Hall of Shame
-</div>
-
-<table>
-
-<tr>
-<th>Navn</th>
-<th>Feil%</th>
-<th>Klager</th>
-</tr>
-
-<tr>
-<td>Kevin</td>
-<td>116.8%</td>
-<td>18</td>
-</tr>
-
-<tr>
-<td>Markus</td>
-<td>104.3%</td>
-<td>7</td>
-</tr>
-
-<tr>
-<td>Emil</td>
-<td>98.1%</td>
-<td>12</td>
-</tr>
-
-<tr>
-<td>Sofie</td>
-<td>94.2%</td>
-<td>9</td>
-</tr>
-
-<tr>
-<td>Jonas</td>
-<td>111.5%</td>
-<td>21</td>
-</tr>
-
-</table>
-
-<button class="secondaryButton" onclick="showSection('archive')">
-Tilbake
-</button>
-
-</div>
-
-<!-- HISTORY -->
-
-<div class="card archiveCard hidden" id="history">
-
-<div class="sectionTitle">
-📜 Historiske analyser
-</div>
-
-<div class="logEntry">
-2009:<br>
-Kevin mente han hadde parkert riktig.<br>
-Instituttet var uenig.
-</div>
-
-<div class="logEntry">
-2017:<br>
-En person argumenterte mot Oline.<br>
-Instituttet ble midlertidig stengt.
-</div>
-
-<div class="logEntry">
-2021:<br>
-Kundeservice mottok 47 klager på én dag.<br>
-Ingen ble godkjent.
-</div>
-
-<div class="logEntry">
-2023:<br>
-Et individ påsto at ananas ikke hører hjemme på pizza.<br>
-Saken pågår fortsatt.
-</div>
-
-<button class="secondaryButton" onclick="showSection('archive')">
-Tilbake
-</button>
-
-</div>
-
-<!-- ACHIEVEMENTS -->
-
-<div class="card archiveCard hidden" id="achievements">
-
-<div class="sectionTitle">
-🏅 Achievements
-</div>
-
-<div class="logEntry">🏅 Argumenterte mot Oline</div>
-
-<div class="logEntry">🏅 100% feil</div>
-
-<div class="logEntry">🏅 Ignorerte logikk</div>
-
-<div class="logEntry">🏅 Sendte inn grunnløs klage</div>
-
-<div class="logEntry">🏅 Medalje for minst IQ</div>
-
-<div class="logEntry">🏅 Den flinkeste i å tenke dumt</div>
-
-<div class="logEntry">🏅 Flest dumme argumenter</div>
-
-<div class="logEntry">🏅 1. plass i å ikke plukke opp en bok</div>
-
-<button class="secondaryButton" onclick="showSection('archive')">
-Tilbake
-</button>
-
-</div>
-
-<!-- HIGHER -->
-
-<div class="card archiveCard hidden" id="higher">
-
-<div class="sectionTitle">
-⚖️ Høyere instans
-</div>
-
-<div class="logEntry">
-
-Aktive saker hos Olaini:
 
 <br><br>
 
-Sak #442<br>
-Status: avvist
+<b>STATUS:</b><br>
+Aktiv debatt internt
 
 <br><br>
 
-Sak #918<br>
-Status: under vurdering
+<b>KLASSIFISERING:</b><br>
+Følsom
 
 <br><br>
 
-Sak #1102<br>
-Status: fortsatt feil
+<b>INSTITUTTSTATUS:</b><br>
+Urovekkende troverdig
 
 </div>
-
-<div class="logEntry">
-Om du ikke er fornøyd med analysen eller kundeservice kan du sende saken videre til Olaini her.
-</div>
-
-<button onclick="runHigher()">
-Send saken til Olaini
-</button>
-
-<div class="result" id="higherResult"></div>
-
-<button class="secondaryButton" onclick="showSection('archive')">
-Tilbake
-</button>
-
-</div>
-
-<!-- ABOUT -->
-
-<div class="card archiveCard hidden" id="about">
-
-<div class="sectionTitle">
-🦋 Om oss
-</div>
-
-<div class="logEntry">
-
-Olines Analyseinstitutt ble laget hovedsakelig for gøy.
-
-Det handler om å være kildekritisk og hvem er vel bedre til å vite om Oline har rett enn Oline selv.
-
-<br><br>
-
-Jeg (Oline) brenner for at alle skal ha en sjanse til å ha selvinnsikt og en sjanse til å forstå at man ikke alltid kan ha rett i diskusjoner.
-
-<br><br>
-
-Jeg håper på en bedre verden, der alle kan innse at å ta feil ikke alltid er så ille.
 
 </div>
 
@@ -1032,6 +813,12 @@ window.scrollTo({
 top:0,
 behavior:'smooth'
 });
+
+}
+
+function toggleTheory(id){
+
+document.getElementById(id).classList.toggle("hidden");
 
 }
 
@@ -1186,7 +973,7 @@ const replies=[
 
 "Klagen ble avvist.",
 
-"Kundeservice konsulterte med Oline.",
+"Kundeservice konsulterte med Oline, hun avslo klagen.",
 
 "Instituttet opprettholder analysen.",
 
@@ -1201,24 +988,6 @@ document.getElementById("complaintResult").innerHTML=
 replies[Math.floor(Math.random()*replies.length)];
 
 document.getElementById("serviceHome").classList.remove("hidden");
-
-}
-
-async function runHigher(){
-
-const result=document.getElementById("higherResult");
-
-result.innerHTML="Saken videresendes til Olaini...";
-
-await new Promise(r=>setTimeout(r,3000));
-
-result.innerHTML=`
-
-Olaini har gjennomgått saken.<br><br>
-
-Den opprinnelige analysen opprettholdes.
-
-`;
 
 }
 
