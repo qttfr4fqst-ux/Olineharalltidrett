@@ -2720,6 +2720,358 @@ olainiButtons.length - 1
 }
 
 },1200);
+  /* =========================
+SYSTEMFEIL PATCH
+LIM INN OVER </script>
+========================= */
+
+/* ===== SYSTEMFEIL MELDINGER ===== */
+
+const systemFailureMessages = [
+
+`
+⚠ SYSTEMFEIL ⚠<br><br>
+
+Ikke nok IQ til å opprettholde koblingen til siden.<br><br>
+
+Vennligst prøv igjen senere.
+`,
+
+`
+⚠ KRITISK SYSTEMSVIKT ⚠<br><br>
+
+Praktikanten forlot arbeidsplassen.<br><br>
+
+Instituttet forsøker å gjenopprette forbindelsen.
+`,
+
+`
+FORBINDELSE BRUTT<br><br>
+
+Årsak:<br>
+kritisk lav refleksjonskapasitet.
+`,
+
+`
+⚠ SYSTEMET KOLLAPSET ⚠<br><br>
+
+Argumentet oversteg anbefalt mengde følelsesstyrt energi.
+`,
+
+`
+⚠ ANALYSE AVBRUTT ⚠<br><br>
+
+Instituttet klarte ikke å forholde seg objektivt til argumentet.
+`
+
+];
+
+/* ===== OPPRETT SYSTEMFEIL ===== */
+
+function triggerSystemFailure(){
+
+const existing =
+document.getElementById("systemFailureOverlay");
+
+if(existing){
+return;
+}
+
+const randomMessage =
+systemFailureMessages[
+Math.floor(
+Math.random() *
+systemFailureMessages.length
+)
+];
+
+const overlay =
+document.createElement("div");
+
+overlay.id =
+"systemFailureOverlay";
+
+overlay.style = `
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+180deg,
+#090909,
+#1a0000,
+#090909
+);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999999;
+padding:20px;
+animation:failureFlash 0.25s infinite alternate;
+`;
+
+overlay.innerHTML = `
+
+<div style="
+max-width:620px;
+width:100%;
+text-align:center;
+padding:40px;
+border-radius:28px;
+background:rgba(0,0,0,0.72);
+border:1px solid rgba(255,0,0,0.25);
+box-shadow:
+0 0 40px rgba(255,0,0,0.18);
+font-family:Poppins,sans-serif;
+color:#ffb3b3;
+">
+
+<div style="
+font-size:4rem;
+margin-bottom:20px;
+animation:glitchShake 0.15s infinite alternate;
+">
+⚠
+</div>
+
+<div style="
+font-size:1.25rem;
+line-height:1.9;
+letter-spacing:0.5px;
+">
+
+${randomMessage}
+
+</div>
+
+<div style="
+margin-top:30px;
+opacity:0.6;
+font-size:0.9rem;
+">
+
+Forsøker å gjenopprette systemforbindelse...
+
+</div>
+
+<div style="
+margin-top:22px;
+height:8px;
+background:rgba(255,255,255,0.08);
+border-radius:999px;
+overflow:hidden;
+">
+
+<div style="
+height:100%;
+width:100%;
+background:
+linear-gradient(
+90deg,
+#ff0000,
+#ff8a8a
+);
+animation:loadingBar 7s linear forwards;
+">
+</div>
+
+</div>
+
+</div>
+
+<style>
+
+@keyframes failureFlash{
+
+from{
+filter:brightness(1);
+}
+
+to{
+filter:brightness(1.08);
+}
+
+}
+
+@keyframes glitchShake{
+
+from{
+transform:translateX(-2px);
+}
+
+to{
+transform:translateX(2px);
+}
+
+}
+
+@keyframes loadingBar{
+
+from{
+width:0%;
+}
+
+to{
+width:100%;
+}
+
+}
+
+</style>
+
+`;
+
+document.body.appendChild(overlay);
+
+/* AUTO LUKK */
+
+setTimeout(()=>{
+
+overlay.remove();
+
+createSmallPopup(
+"Instituttet beklager hendelsen."
+);
+
+},7000);
+
+}
+
+/* ===== SYSTEMFEIL SJEKK ===== */
+
+function systemFailureCheck(inputText){
+
+let triggerChance = 0.03;
+
+/* MASSE CAPSLOCK */
+
+const capsMatches =
+inputText.match(/[A-ZÆØÅ]{5,}/g);
+
+if(capsMatches){
+
+triggerChance += 0.08;
+
+}
+
+/* MASSE UTROPSTEGN */
+
+const exclamationMarks =
+(inputText.match(/\!/g) || []).length;
+
+if(exclamationMarks >= 4){
+
+triggerChance += 0.06;
+
+}
+
+/* AGGRESSIVE ORD */
+
+const aggressiveWords = [
+
+"DU TAR FEIL",
+"IDIOT",
+"HVA FEILER DET DEG",
+"HOLD KJEFT",
+"JEG HAR RETT"
+
+];
+
+aggressiveWords.forEach(word => {
+
+if(
+inputText.toUpperCase().includes(word)
+){
+
+triggerChance += 0.08;
+
+}
+
+});
+
+/* RANDOM SJANSE */
+
+if(Math.random() < triggerChance){
+
+setTimeout(()=>{
+
+triggerSystemFailure();
+
+},2200);
+
+}
+
+}
+
+/* ===== KOBLE TIL ANALYSER ===== */
+
+const oldSystemQuick =
+runQuick;
+
+runQuick = async function(){
+
+const textareas =
+document.querySelectorAll("#quick textarea");
+
+let combinedText = "";
+
+textareas.forEach(t => {
+
+combinedText += " " + t.value;
+
+});
+
+await oldSystemQuick();
+
+systemFailureCheck(combinedText);
+
+};
+
+const oldSystemOline =
+runOline;
+
+runOline = async function(){
+
+const textareas =
+document.querySelectorAll("#oline textarea");
+
+let combinedText = "";
+
+textareas.forEach(t => {
+
+combinedText += " " + t.value;
+
+});
+
+await oldSystemOline();
+
+systemFailureCheck(combinedText);
+
+};
+
+const oldSystemFriend =
+runFriend;
+
+runFriend = async function(){
+
+const textareas =
+document.querySelectorAll("#friend textarea");
+
+let combinedText = "";
+
+textareas.forEach(t => {
+
+combinedText += " " + t.value;
+
+});
+
+await oldSystemFriend();
+
+systemFailureCheck(combinedText);
+
+};
 </script>
 
 </body>
