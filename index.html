@@ -2366,6 +2366,55 @@ overlay.remove();
 }
 
 }
+  /* =========================
+SAFE ACHIEVEMENT CLOSE PATCH
+========================= */
+
+document.addEventListener("click", function(e){
+
+if(
+e.target &&
+e.target.closest(".achievementPopup button")
+){
+
+const popup =
+e.target.closest(".achievementPopup");
+
+if(popup){
+
+e.preventDefault();
+e.stopPropagation();
+
+popup.remove();
+
+}
+
+}
+
+});
+
+/* LEGG AUTOMATISK TIL CLASS */
+
+const oldCreateAchievementPopup =
+createAchievementPopup;
+
+createAchievementPopup = function(message){
+
+oldCreateAchievementPopup(message);
+
+const popups =
+document.querySelectorAll("body > div");
+
+const newestPopup =
+popups[popups.length - 1];
+
+if(newestPopup){
+
+newestPopup.classList.add("achievementPopup");
+
+}
+
+};
 </script>
 
 </body>
