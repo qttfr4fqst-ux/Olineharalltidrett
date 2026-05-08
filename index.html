@@ -2012,29 +2012,7 @@ randomAchievement();
 
 randomSmallPopup();
 
-}
 
-},1200);
-
-};
-
-const oldOlineFunction = runOline;
-
-runOline = async function(){
-
-await oldOlineFunction();
-
-setTimeout(()=>{
-
-if(Math.random() < 0.4){
-
-randomAchievement();
-
-}else{
-
-randomSmallPopup();
-
-}
 
 },1200);
 
