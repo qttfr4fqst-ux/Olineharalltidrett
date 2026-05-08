@@ -2415,6 +2415,50 @@ newestPopup.classList.add("achievementPopup");
 }
 
 };
+  /* =========================
+SAFE ACHIEVEMENT PATCH V2
+========================= */
+
+const originalAchievementPopup =
+createAchievementPopup;
+
+createAchievementPopup = function(message){
+
+originalAchievementPopup(message);
+
+setTimeout(() => {
+
+const popups =
+document.querySelectorAll("body > div");
+
+const newestPopup =
+popups[popups.length - 1];
+
+if(!newestPopup){
+return;
+}
+
+newestPopup.classList.add("achievementPopup");
+
+const closeButton =
+newestPopup.querySelector("button");
+
+if(closeButton){
+
+closeButton.onclick = function(event){
+
+event.preventDefault();
+event.stopPropagation();
+
+newestPopup.remove();
+
+};
+
+}
+
+},10);
+
+};
 </script>
 
 </body>
