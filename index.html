@@ -2038,28 +2038,6 @@ randomSmallPopup();
 
 },1200);
 
-};
-
-const oldFriendFunction = runFriend;
-
-runFriend = async function(){
-
-await oldFriendFunction();
-
-setTimeout(()=>{
-
-if(Math.random() < 0.4){
-
-randomAchievement();
-
-}else{
-
-randomSmallPopup();
-
-}
-
-},1200);
-
 
 
 };
