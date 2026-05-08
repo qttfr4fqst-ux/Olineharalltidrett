@@ -1994,30 +1994,6 @@ randomSmallPopup();
 
 },28000);
 
-/* ANALYSIS EVENTS */
-
-const oldQuickFunction = runQuick;
-
-runQuick = async function(){
-
-await oldQuickFunction();
-
-setTimeout(()=>{
-
-if(Math.random() < 0.35){
-
-randomAchievement();
-
-}else{
-
-randomSmallPopup();
-
-}
-
-},1200);
-
-};
-
 
 
 </script>
